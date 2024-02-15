@@ -1,0 +1,10 @@
+.sidebar {
+    width: 23%;
+    height: var(--min-screen-height);
+    padding: 2rem;
+    background-color: var(--sidebar-color);
+    overflow: hidden;
+    max-width: 310px;
+    position: sticky;
+    top: 0;
+}

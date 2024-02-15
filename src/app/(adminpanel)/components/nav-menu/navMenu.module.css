@@ -1,0 +1,60 @@
+.navmenuList{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.navmenuLinkItem{
+    text-decoration: none;
+    color: var(--text-color);
+    display: block;
+    text-transform: uppercase;
+}
+
+.navmenuLinkItem:hover{
+    color: var(--active-link-color);
+}
+
+.navmenuLinkItemActive{
+    color: var(--active-link-color);
+}
+
+.navmenuListItem{
+    margin: 1rem 0;
+    padding: 1.5rem 0;
+}
+
+.navmenuDropdown{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 85%;
+    margin: auto;
+    max-width: 210px;
+}
+
+.navmenuDropdownItem{
+    background: var(--gradient-bg-6) padding-box, var(--gradient-bg-6) border-box;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 2rem;
+    border: 2px solid transparent;
+}
+
+.navmenuDropdownHeading{
+    font-size: 12px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.navmenuDropdownCol{
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.navmenuDropdownCol:last-of-type{
+    margin-bottom: 0;
+}

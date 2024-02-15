@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dark:root{
+    --primary-color: #0D052C;
+    --secondary-color: #00F0FF;
+
+    --sidebar-color: #0D052C;
+
+    --border-color: linear-gradient(126.6deg, rgba(255, 255, 255, 0.03) 28.69%, rgba(255, 255, 255, 0) 100%);
+
+    --text-color: #FFFFFF;
+
+    --min-screen-height: 100vh;
+
+    --active-link-color: #00F0FF;
+
+    --gradient-bg: linear-gradient(225deg, rgba(147, 39, 143, 1) 0%, rgba(0, 240, 255, 1) 100%);
+
+    --gradient-bg-2: linear-gradient(#150d33, #150d33);
+
+    --gradient-bg-3: linear-gradient(115.61deg, #5CFFCE 0%, #00848C 66.67%);
+
+    --gradient-bg-4: linear-gradient(126.6deg, rgba(255, 255, 255, 0.2) 28.69%, rgba(255, 255, 255, 0) 100%);
+
+    --gradient-bg-5: linear-gradient(126.6deg, rgba(255, 255, 255, 0.2) 28.69%, rgba(255, 255, 255, 0) 100%);
+
+    --text-color-2: rgba(0, 240, 255, 1);
+
+    --bg-filled-color: #130c2d;
+    
+    /* --gradient-bg-6: linear-gradient(225deg, rgba(147, 39, 143, 0.2) 0%, rgba(0, 240, 255, 0.2) 100%),
+    linear-gradient(225deg, #93278F 0%, #00F0FF 100%); */
+
+    --gradient-bg-6: linear-gradient(225deg, rgba(147, 39, 143, 0.20) 0%, rgba(0, 240, 255, 0.20) 100%);
+
+    --gradient-bg-7: linear-gradient(to right, #00f0ff 0%,#2989d8 0%,#93278f 100%);
+
+    --gradient-bg-13: linear-gradient(to right, #00f0ff 0%,#2989d8 0%,#93278f 100%);
+
+
+    --gradient-bg-8: linear-gradient(90deg, rgba(0, 240, 255, 0.20) 0%, rgba(147, 39, 143, 0.20) 100%);
+
+    --shadow-bg-color: rgba(252, 0, 255, 0.30);
+    --gradient-bg-9: linear-gradient(153deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%);
+
+    --gradient-bg-10: linear-gradient(134deg, #00F0FF 0%, #93278F 100%);
+
+    --gradient-bg-11: linear-gradient(134deg, #93278F 0%, #93278F 100%);
+
+    --gradient-bg-12: linear-gradient(153deg, rgba(255, 255, 255, 0.20) 0%, rgba(255, 255, 255, 0.00) 100%);
+}
+
+.light:root{
+    --primary-color: #FFFFFF;
+    --secondary-color: #F3F3F3;
+
+    --sidebar-color: #F3F3F3;
+
+    --border-color: linear-gradient(126.6deg, rgba(255, 255, 255, 0.03) 28.69%, rgba(255, 255, 255, 0) 100%);
+
+    --text-color: #333333;
+
+    --min-screen-height: 100vh;
+
+    --active-link-color: #00848C;
+
+    --gradient-bg: linear-gradient(225deg, rgba(147, 39, 143, 1) 0%, rgba(0, 240, 255, 1) 100%);
+
+    --gradient-bg-2: linear-gradient(#fff, #fff);
+
+    --gradient-bg-3: linear-gradient(115.61deg, #5CFFCE 0%, #00848C 66.67%);
+
+    --gradient-bg-4: linear-gradient(126.6deg, rgba(255, 255, 255, 1) 28.69%, rgba(255, 255, 255, 1) 100%);
+
+    --gradient-bg-5: linear-gradient(126.6deg, rgba(0, 0, 0, 0.8) 28.69%, rgba(255, 255, 255, 0.1) 100%);
+
+    --text-color-2: rgba(0, 132, 140, 1);
+
+    --bg-filled-color: #fff;
+
+    /* --gradient-bg-6: linear-gradient(225deg, #93278F 0%, #00F0FF 100%); */
+    --gradient-bg-6: linear-gradient(225deg, rgba(147, 39, 143, 0.50) 0%, rgba(0, 240, 255, 0.50) 100%);
+
+    --gradient-bg-7: linear-gradient(to right, #00f0ff 0%,#2989d8 0%,#93278f 100%);
+
+    --gradient-bg-13: linear-gradient(to right, #fff 0%,#fff 0%,#fff 100%);
+
+    --gradient-bg-8: linear-gradient(90deg, rgba(0, 240, 255, 0.30) 0%, rgba(147, 39, 143, 0.30) 100%);
+
+    --gradient-bg-9: linear-gradient(135deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.2) 100%);
+
+    
+    --gradient-bg-10: linear-gradient(134deg, #00F0FF 0%, #93278F 100%);
+    
+    --gradient-bg-11: linear-gradient(134deg, #93278F 0%, #93278F 100%);
+    
+    --gradient-bg-12: linear-gradient(153deg, rgba(255, 255, 255, 1) 10%, rgba(255, 255, 255, 1) 100%);
+}
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    background-color: var(--primary-color);
+    font-size: 16px;
+}
+
+img{
+    max-width: 100%;
+}
+
+p{
+    color: var(--text-color);
+    font-size: 1em;
+    letter-spacing: 0.1em;
+}
+
+h1, h2, h3, h4, h5, h6{
+    color: var(--text-color);
+    letter-spacing: 0.1em
+}
+
+.adminPanel {
+    display: flex;
+}
+
+section.mainContent {
+    width: 77%;
+    padding: 3.5rem 4rem;
+    min-width: calc(100% - 310px);
+    background: url('/dashboard-bg.png') no-repeat bottom right / auto;
+    /* background-attachment: fixed; */
+}
+
+section.mainContent.no-bg{
+    background: none;
+}
+
+.landingPageGradientBtn{
+    background: linear-gradient(135deg, #5CFFCE 0%, #00848C 66.67%);
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}

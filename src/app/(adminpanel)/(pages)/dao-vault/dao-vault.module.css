@@ -1,0 +1,69 @@
+.cardRow{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 10rem;
+    margin-bottom: 9rem;
+}
+
+.btnFilled{
+    font-size: 14px;
+    min-width: 380px;
+    padding: 20px 10px;
+    text-transform: uppercase;
+    border-radius: 12px;
+    background: var(--gradient-bg-7) padding-box,
+    var(--gradient-bg-7) border-box;
+    border: 4px solid transparent;
+    color: #fff;
+    box-shadow: 0px 10px 25px var(--gradient-bg-7);
+}
+
+.btnRow{
+    max-width: calc(100vw / 2);
+    text-align: center;
+}
+
+.wrapperRow{
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+    column-gap: 30px;
+}
+
+.table{
+    max-width: 750px;
+    background: var(--gradient-bg-12) padding-box,
+    var(--gradient-bg-9) border-box;
+    border: 4px solid transparent;
+    backdrop-filter: blur(5px);
+    border-radius: 16px;
+    padding: 20px ;
+}
+
+.tableRow{
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0
+}
+
+.tableHeading{
+    font-size: 22px;
+}
+
+.tableData{
+    font-size: 16px;
+}
+
+.tableCol{
+    width: calc(100% / 5)
+}
+
+.tableColSM{
+    width: calc(100% / 5 - 40px)
+}
+
+.wrapperCol{width: calc(100% / 2);}
+
+.mapCol{margin-top: -150px;}
+
+.mainContent{background: none;}

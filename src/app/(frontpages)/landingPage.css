@@ -1,0 +1,17 @@
+.landingPageGradientText {
+    /* background: linear-gradient(135deg, #5CFFCE 0%, #00848C 66.67%); */
+    background: linear-gradient(135deg, #8CFFDD 0%, #00BBC7 100%);
+    -webkit-text-stroke-width: 2px;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.landingPageGradientBg {
+    background: linear-gradient(135deg, rgba(92, 255, 206, 0.30) 0%, rgba(0, 132, 140, 0.30) 66.67%);
+}
+
+.landingPageProjectGradientBg {
+    background: linear-gradient(155.14deg, rgba(92, 255, 206, 0.3) -2.13%, rgba(255, 255, 255, 0.3) 136.58%),
+linear-gradient(151.65deg, rgba(255, 255, 255, 0.3) -6.81%, rgba(255, 255, 255, 0) 106.92%);
+
+}
