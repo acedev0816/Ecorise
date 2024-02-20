@@ -1,0 +1,22 @@
+.input{
+    padding: 20px 15px;
+    min-width: 516px;
+    border: 1px solid var(--text-color);
+    border-radius: 12px;
+    color: var(--text-color);
+    background: var(--bg-filled-color);
+    font-size: 18px;
+    width: 100%;
+}
+
+.bitcoin{
+    background-image:url(/bitcoin3.svg);
+    width: 35px;
+    height: 35px;
+}
+
+.ethereum{
+    background-image:url(/eth.svg);
+    width: 35px;
+    height: 35px;
+} 

@@ -78,11 +78,16 @@ const LandingPage = function(){
                 <EcoSystemContainer>
                     <EcoSystemBox>
                         <Typography variant="h3" fontFamily="Jura" className="dark:text-textColor-100 text-primary font-bold" content="B2C (For Token holders)" />
-                        <Typography variant="h4" className="leading-relaxed" fontFamily="Jura" content="Early access to Refi projects Stake ECO to earn rewards Discounts on fees" />
+                        <Typography variant="h5" className="leading-relaxed" fontFamily="Jura" content="∙ Early access to Refi projects" />
+                        <Typography variant="h5" className="leading-relaxed" fontFamily="Jura" content="∙ Stake ECO to earn rewards" />
+                        <Typography variant="h5" className="leading-relaxed" fontFamily="Jura" content="∙ Discounts on fees" />
                     </EcoSystemBox>
                     <EcoSystemBox>
                         <Typography variant="h3" fontFamily="Jura" className="dark:text-textColor-100 text-primary font-bold" content="B2C (For Business)" />
-                        <Typography variant="h4" className="leading-relaxed" fontFamily="Jura" content="Align with ESG and SDG criteria Ability to list projects Network access Tech stack access" />
+                        <Typography variant="h5" className="leading-relaxed" fontFamily="Jura" content="∙ Align with ESG and SDG criteria" />
+                        <Typography variant="h5" className="leading-relaxed" fontFamily="Jura" content="∙ Ability to list projects" />
+                        <Typography variant="h5" className="leading-relaxed" fontFamily="Jura" content="∙ Network access" />
+                        <Typography variant="h5" className="leading-relaxed" fontFamily="Jura" content="∙ Tech stack access" />
                     </EcoSystemBox>
                 </EcoSystemContainer>
             </EcoSystemSection>

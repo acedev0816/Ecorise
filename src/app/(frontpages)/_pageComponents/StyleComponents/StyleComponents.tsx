@@ -168,6 +168,17 @@ export const TeamsQouteSection = tw.section`
     flex flex-col gap-20
 `;
 
+export const TokenizeContainer = tw.div`
+    flex flex-col gap-2
+    max-w-screen-lg m-auto
+`;
+
+export const TokenizeSection = tw.section`
+    py-20 px-4
+    dark:bg-primary bg-white
+    flex flex-col gap-20
+`;
+
 export const TeamSection = tw.section`
     dark:bg-primary bg-white
     pt-10 pb-20 px-4
