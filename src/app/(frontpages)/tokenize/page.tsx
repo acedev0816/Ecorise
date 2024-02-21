@@ -50,7 +50,7 @@ export default function Page() {
           />
         </HeroContainer>
       </SubHeroSection>
-      <form>
+      <form className='px-5'>
         <p className="mt-10 dark:bg-primary bg-white flex flex-col gap-20 text-5xl leading-relaxed dark:text-white text-primary font-bold text-center">
           Upload NFT
         </p>
@@ -58,7 +58,7 @@ export default function Page() {
           Please provide necessary information for tokenizing your data.
         </p>
         <div className="mt-10 container mx-auto max-w-4xl space-y-6">
-          <label htmlFor="cover-photo" className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary">
+          <label htmlFor="cover-photo" className="mx-auto dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary">
             Please upload your file(Image, Video, Audio).
           </label>
           <div className={`mt-2 flex justify-center rounded-lg border border-dashed border-white-900/25 px-6 py-10 ${dragging ? 'bg-gray-200' : ''}`}
@@ -179,9 +179,8 @@ export default function Page() {
               <option value="Ethereum" title="/eth.svg">Ethereum</option>
             </select>
           </div>
-
+          <div></div>
           <Button className="mt-2 w-[13rem]" variant="gradient" size="lg" fontFamily="Poppins" rounded="xl3" value='Tokenize' />
-
         </div>
       </form>
     </div>

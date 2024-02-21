@@ -1,8 +1,15 @@
 .input{
     padding: 20px 15px;
-    min-width: 516px;
     border: 1px solid var(--text-color);
     border-radius: 12px;
+    color: var(--text-color);
+    background: var(--bg-filled-color);
+    font-size: 18px;
+    width: 100%;
+}
+.inputdashboard{
+    padding: 11px 10px;
+    border: 1px solid var(--text-color);
     color: var(--text-color);
     background: var(--bg-filled-color);
     font-size: 18px;

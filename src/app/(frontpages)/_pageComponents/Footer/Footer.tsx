@@ -8,25 +8,25 @@ const Footer = function() {
 
     const FooterWrapper = tw.footer`
         dark:bg-primary bg-white 
-        pt-20 pb-5 px-4
-        flex flex-col gap-20
-        
+        md:pt-20 md:pb-5 px-4
+        flex flex-col gap-20 item-center
     `;
 
     const FooterContainer = tw.div`
-        flex items-start gap-2 justify-center
-        max-w-screen-2xl m-auto
+        flex items-start gap-2 item-center
+        max-w-screen-2xl mx-auto
         w-full
+        flex-col md:flex-row
     `;
 
     const FooterLogo = tw.div`
-        flex flex-col gap-10
-        w-1/2
+        flex flex-col gap-2 md:gap-10
+        md:w-1/2
     `;
 
     const FooterLinks = tw.div`
         flex flex-col gap-6
-        w-1/5
+        md:w-1/5
     `;
 
     const SocialLinks = tw.div`
@@ -35,10 +35,10 @@ const Footer = function() {
     `;
 
     return <FooterWrapper>
-        <FooterContainer>
-            <FooterLogo>
-                <Image className="dark:block hidden" src={'/logo-dark.svg'} width={215} height={60} alt="EcoRise" />
-                <Image className="dark:hidden block " src={'/logo-light.svg'} width={215} height={60} alt="EcoRise" />
+        <FooterContainer >
+            <FooterLogo >
+                <Image className="dark:block hidden" src={'/logo-dark.svg'} width={300} height={80} alt="EcoRise" />
+                <Image className="dark:hidden block " src={'/logo-light.svg'} width={300} height={80} alt="EcoRise" />
                 <Button className="self-start min-w-[224px] min-h-[60px] tracking-[5px]" variant="outlined" size="lg" rounded="xl" value="Email Signup" />
             </FooterLogo>
             <FooterLinks className="w-[15%]">
@@ -55,7 +55,7 @@ const Footer = function() {
             </FooterLinks>
             <FooterLinks>
                 <Typography variant="h5" fontFamily="Michroma" content="Contact" />
-                <Link href={'#'} className="text-xl dark:text-white text-primary dark:text-opacity-50 hover:text-opacity-100 underline">info@ecorise.finance</Link>
+                <Link href={'#'} className="break-words text-xl dark:text-white text-primary dark:text-opacity-50 hover:text-opacity-100 underline">info@ecorise.finance</Link>
                 <SocialLinks>
                     <Link href={'#'} className="text-xl text-white text-opacity-50 hover:text-opacity-100">
                         <Image src={'/youtube.svg'} alt="Youtube" width={25} height={16} className="dark:block hidden" />
@@ -72,7 +72,7 @@ const Footer = function() {
                 </SocialLinks>
             </FooterLinks>
         </FooterContainer>
-        <FooterContainer>
+        <FooterContainer className="justify-center items-center">
             <Link href={'#'} className="text-center dark:text-white font-medium text-primary dark:text-opacity-50">Terms &amp; Conditions</Link>
         </FooterContainer>
     </FooterWrapper>

@@ -22,8 +22,8 @@ export const HeroContainer = tw.div`
 `;
 
 export const AboutContainer = tw.div`
-    flex items-stretch gap-10 justify-between
-    max-w-screen-2xl m-auto
+    flex items-stretch md:gap-10 
+    max-w-screen-2xl
 `;
 
 export const ButtonWrapper = tw.div`
@@ -43,7 +43,7 @@ export const ImpactSection = tw.section`
 `;
 
 export const ImpactCol = tw.div`
-    w-[46%]
+    mx-10
     flex flex-col gap-8
 `;
 
@@ -64,37 +64,38 @@ export const EcoSystemContainer = tw.div`
 `;
 
 export const EcoSystemBox = tw.div`
-    flex flex-col gap-4
-    p-20
+    flex flex-col gap-2
+    p-5 md:p-10
     border-2 border-textColor-100
     rounded-3xl	
-    skew-x-[-10deg]
+    md:skew-x-[-10deg]
     min-h-[400px]
-    w-[50%]
+    md:mx-10
 `;
 
 export const AssetsSection = tw.section`
     dark:bg-primary bg-white
-    py-20 px-4    
+    py-2 px-4    
 `;
 
 export const AssetsContainer = tw.div`
-    flex items-center gap-20 justify-between
-    max-w-screen-2xl m-auto
+    flex items-center gap-2 justify-between
+    max-w-screen-2xl mx-auto
 `;
 
 export const AssetsCol = tw.div`
-    w-2/5			
+    md:w-1/2
+    mx-10			
 `;
 
 export const AssetsImages = tw.div`
-    flex gap-y-10 flex-wrap justify-center
-    w-1/2
+    flex  flex-wrap justify-center
+    mx-10
 `;
 
 export const IncomeSection = tw.section`
     dark:bg-primary bg-white
-    px-4
+    px-4 mt-5
 `;
 
 export const IncomeContainer = tw.div`
@@ -103,26 +104,26 @@ export const IncomeContainer = tw.div`
 `;
 
 export const IncomeCol = tw.div`
-    w-2/5	
-    translate-y-[-5rem]
+    md:w-2/5
+    mx-4
 `;
 
 export const OverlapSection = tw.div`
     dark:bg-primary bg-white
-    py-20 px-4
+    py-10 px-4
 `;
 
 export const OverlapContainer = tw.div`
     flex items-center
-    max-w-screen-2xl m-auto 
-    relative
+    max-w-screen-2xl 
 `;
 
 export const OverlayCard = tw.div`
-    p-20
+    p-5 md:p-10
     rounded-3xl
     border-[2px] border-textColor-100
-    skew-x-[-5deg]
+    md:skew-x-[-5deg]
+    md:mx-12
 `;
 
 export const ProjectSection = tw.div`
@@ -154,7 +155,7 @@ export const TestimonialSection = tw.div`
 
 export const TestimonialContainer = tw.div`
     flex items-s gap-10
-    max-w-screen-2xl m-auto
+    max-w-screen-2xl md:mx-5
 `;
 
 export const TeamsQouteContainer = tw.div`

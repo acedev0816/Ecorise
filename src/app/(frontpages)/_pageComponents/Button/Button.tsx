@@ -57,7 +57,6 @@ const ButtonVariants = cva(
         defaultVariants: {
             variant: 'gradient',
             size: 'lg',
-            rounded: 'xl3',
             fontFamily: 'Poppins'
         }
     }

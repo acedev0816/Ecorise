@@ -20,8 +20,8 @@ const Testimonial: FC<TestimonialProp> = function({
         py-12 px-6
         rounded-3xl
         border-[2px] border-textColor-100
-        skew-x-[-5deg]
-        w-1/3	
+        md:skew-x-[-5deg]
+        md:w-1/3	
     `;
 
     const RatingWrapper = tw.div`
