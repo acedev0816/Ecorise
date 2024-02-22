@@ -63,10 +63,6 @@ const Header = function () {
                     <NavList className="justify-between gap-5 md:gap-14 mx-auto flex-wrap">
                         <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
                             <Link href={'/tokenize'} className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl hover:font-medium dark:hover:text-textColor-100`}>Tokenize</Link>
-                            <div className="absolute top-0 flex flex-col items-center hidden mt-6 group-hover:flex">
-                                <div className="w-3 h-3 -mb-2 rotate-45 bg-white hidden md:block"></div>
-                                <span className="relative w-[120px] z-10 p-2 text-m leading-none text-black whitespace-no-wrap bg-white shadow-lg hidden md:block">Coming soon</span>
-                            </div>
                         </NavItem>
                         <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
                             <Link href={'#'} className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl hover:font-medium dark:hover:text-textColor-100`}>Launchpad</Link>
