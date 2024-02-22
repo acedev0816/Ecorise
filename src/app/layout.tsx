@@ -2,19 +2,19 @@
 import "./globals.css";
 import { Michroma, Jura, Poppins } from "next/font/google";
 
-export const MichromaFont = Michroma({
+const MichromaFont = Michroma({
   subsets: ["latin"],
   weight: ["400"],
   display: 'swap', adjustFontFallback: false
 });
 
-export const JuraFont = Jura({
+const JuraFont = Jura({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   display: 'swap', adjustFontFallback: false
 });
 
-export const PoppinsFont = Poppins({
+const PoppinsFont = Poppins({
   subsets: ["latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700"],
   display: 'swap', adjustFontFallback: false

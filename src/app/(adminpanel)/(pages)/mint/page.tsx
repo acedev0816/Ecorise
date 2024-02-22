@@ -1,8 +1,27 @@
 "use client"
-import { JuraFont } from "@/app/layout";
+
 import Card from "../../components/card/card";
 import styles from './min.module.css';
 import { useEffect } from "react";
+import { Michroma, Jura, Poppins } from "next/font/google";
+
+const MichromaFont = Michroma({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: 'swap', adjustFontFallback: false
+});
+
+const JuraFont = Jura({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: 'swap', adjustFontFallback: false
+});
+
+const PoppinsFont = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: 'swap', adjustFontFallback: false
+});
 
 export default function MintPage() {
     useEffect( () => { 

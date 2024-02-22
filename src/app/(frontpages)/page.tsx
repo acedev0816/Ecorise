@@ -26,7 +26,7 @@ const LandingPage = function () {
             </HeroSection>
 
             <AboutSection>
-                <AboutContainer className="items-center flex-col md:flex-row">
+                <AboutContainer className="items-center flex-col lg:flex-row">
                     <Typography className="break-words flex-1 leading-relaxed text-[24px] md:text-[42px] font-semibold" variant="h3" fontFamily="Jura" content="ECORISE utilizes Web3, Ai and Climate Technologies to accelerate the transition toward a Regenerative Impact Economy." />
                     <Image
                         src={`/globe-dark.svg`}
@@ -46,7 +46,7 @@ const LandingPage = function () {
                 <AboutContainer>
                     <Typography className="font-bold text-center px-[50px]" variant="h5" fontFamily="Jura" content="ECORISE makes impact investing easy by democratizing access to natural capital markets and using Ai to identify and predict market growth in business focused on Regenerative Finance (ReFi), Climate Tech and Eco Credits (carbon, water, biodiversity)." />
                 </AboutContainer>
-                <AboutContainer className="flex-col md:flex-row">
+                <AboutContainer className="flex-col lg:flex-row gap-5">
                     <Card heading="Launchpad" icon="bitcoin" text={['Connects VC impact investors with established and grassroot ReFi projects.', 'Launch Tokenized assets and tap into Web3 liquidity.', 'Democratizes funding and impact investment access for everyone with a smartphone and internet access.']} />
                     <Card heading="Marketplace" icon="bitcoin" text={['Trade tokenized assets 24/7, like eco credits, data & asset NFTs.', 'Global Marketplace access.', 'Decentralized credit union for the "unbanked", lock up ReFi Tokens to borrow against.']} />
                     <Card heading="Asset Tokenization" icon="bitcoin" text={['Utilizing tech like Ai, Blockchain, DMRV (Digital Measuring, Reporting and Verification) to verify asset data and value.', 'Create marketable NFTs that meet ESG and SDG criteria for balance sheets.', 'Transparent and publicly viewable data, easy to audit.']} />

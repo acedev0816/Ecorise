@@ -1,9 +1,27 @@
 "use client"
 
-import { JuraFont, MichromaFont, PoppinsFont } from "@/app/layout";
 import { cva, cx, type VariantProps } from "class-variance-authority";
 import { HTMLAttributes } from "react";
 import tw from "tailwind-styled-components";
+import { Michroma, Jura, Poppins } from "next/font/google";
+
+const MichromaFont = Michroma({
+  subsets: ["latin"],
+  weight: ["400"],
+  display: 'swap', adjustFontFallback: false
+});
+
+const JuraFont = Jura({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: 'swap', adjustFontFallback: false
+});
+
+const PoppinsFont = Poppins({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  display: 'swap', adjustFontFallback: false
+});
 
 const TypograpgyAttributes = cva([],
     {

@@ -23,7 +23,7 @@ export const HeroContainer = tw.div`
 
 export const AboutContainer = tw.div`
     flex items-stretch md:gap-10 
-    max-w-screen-2xl
+    max-w-screen-2xl m-auto
 `;
 
 export const ButtonWrapper = tw.div`
