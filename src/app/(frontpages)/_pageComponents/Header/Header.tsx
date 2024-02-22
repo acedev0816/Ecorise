@@ -100,7 +100,7 @@ const Header = function () {
                         className="pt-8 dark:block hidden"
                     />
                     <Image
-                        src={`/mobilemenublack1.png`}
+                        src={`/mobilemenublack.png`}
                         alt="EcoRise"
                         width={36}
                         height={36}
