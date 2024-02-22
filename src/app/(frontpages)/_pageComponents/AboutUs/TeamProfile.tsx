@@ -26,7 +26,7 @@ const TeamProfile: FC<TeamProfileProp> = function ({
         landingPageGradientBg
         px-3 py-3
         rounded-md
-        w-[50%]
+        md:w-[50%]
         min-h-[100px]
     `;
 

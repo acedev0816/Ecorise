@@ -186,7 +186,7 @@ export const TeamSection = tw.section`
 `;
 
 export const TeamRow = tw.div`
-    flex flex-row gap-5
+    flex flex-col md:flex-row gap-5
 `;
 
 export const TeamContainer = tw.div`
