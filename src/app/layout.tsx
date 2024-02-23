@@ -1,12 +1,13 @@
 // "use client";
 import "./globals.css";
-import { Michroma, Jura, Poppins } from "next/font/google";
+// import { Michroma, Jura, Poppins } from "next/font/google";
+import { Jura} from "next/font/google";
 
-const JuraFont = Jura({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: 'swap', adjustFontFallback: false
-});
+// const JuraFont = Jura({
+//   subsets: ["latin"],
+//   weight: ["400", "600", "700"],
+//   display: 'swap', adjustFontFallback: false
+// });
 
 export default function RootLayout({
   children,
@@ -26,7 +27,8 @@ export default function RootLayout({
         <meta name="description" content={metadata.description}/>
       </head>
 
-      <body className={JuraFont.className}>{children}</body>      
+      {/* <body className={JuraFont.className}>{children}</body>       */}
+      <body >{children}</body>      
     </html>
   );
 }
