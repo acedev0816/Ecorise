@@ -42,17 +42,17 @@ const Header = function () {
     }
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
-          if (nav && mobile_menu_ref.current && !mobile_menu_ref.current.contains(event.target as Node)) {
-            setNav(!nav);
-          }
+            if (nav && mobile_menu_ref.current && !mobile_menu_ref.current.contains(event.target as Node)) {
+                setNav(!nav);
+            }
         }
         document.addEventListener('click', handleClickOutside);
         return () => {
-          document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('click', handleClickOutside);
         };
-      }, [nav, mobile_menu_ref]
+    }, [nav, mobile_menu_ref]
     );
-    
+
     return (
         <HeaderRoot>
             <div className="flex container mx-auto max-w-8xl justify-between">
@@ -121,8 +121,8 @@ const Header = function () {
                     />
                 </div>
                 {nav && (
-                    <div onClick={() => setNav(!nav)} ref={mobile_menu_ref} className="fixed absolute top-40 right-0 z-40">
-                        <div className="dark:bg-primary bg-white px-6 py-6 opacity-100 border dark:border-white border-black border-1">
+                    <div onClick={() => setNav(!nav)} ref={mobile_menu_ref} className="fixed inset-0 z-40 bg-white/50 backdrop-blur-sm">
+                        <div className="absolute h-full right-0 dark:bg-primary bg-white px-6 py-6 opacity-90 border-l dark:border-white border-black border-1">
                             <menu className="text-3xl ">
                                 <li className=""><Link href={'/tokenize'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Tokenize</Link></li>
                                 <li className="pt-6"><Link href={'/'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Launchpad</Link></li>
