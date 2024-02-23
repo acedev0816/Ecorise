@@ -121,16 +121,30 @@ const Header = function () {
                     />
                 </div>
                 {nav && (
-                    <div onClick={() => setNav(!nav)} ref={mobile_menu_ref} className="fixed inset-0 z-40 bg-white/50 backdrop-blur-sm">
+                    <div onClick={() => setNav(!nav)} ref={mobile_menu_ref} className="fixed inset-0 z-40 bg-white/50 backdrop-blur-md">
                         <div className="absolute h-full right-0 dark:bg-primary bg-white px-6 py-6 opacity-90 border-l dark:border-white border-black border-1">
-                            <menu className="text-3xl ">
-                                <li className=""><Link href={'/tokenize'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Tokenize</Link></li>
+                            <Image
+                                src={`/logo-dark.svg`}
+                                alt="EcoRise"
+                                width={200}
+                                height={80}
+                                className="dark:block hidden"
+                            />
+                            <Image
+                                src={`/logo-light.svg`}
+                                alt="EcoRise"
+                                width={200}
+                                height={80}
+                                className="dark:hidden block"
+                            />
+                            <menu className="text-2xl ">
+                                <li className="pt-6"><Link href={'/tokenize'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Tokenize</Link></li>
                                 <li className="pt-6"><Link href={'/'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Launchpad</Link></li>
                                 <li className="pt-6"><Link href={'/'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Marketplace</Link></li>
                                 <li className="pt-6"><Link href={'/'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Dashboard</Link></li>
                                 <li className="pt-6"><Link href={'/about-us'} className={`${PoppinsFont.className} dark:text-white text-primary`}>AboutUs</Link></li>
-                                <li className="pt-6 pb-12"><Link href={'/'} className={`${PoppinsFont.className} dark:text-white text-primary`}>{btnText}</Link></li>
                             </menu>
+                            <Button className="mt-6 w-[10rem]" variant="gradient" fontFamily="Poppins" rounded="xl3" value={btnText} />
                         </div>
                     </div>
                 )}
