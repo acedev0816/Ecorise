@@ -5,7 +5,7 @@ import EcoRiseLogo from "@/assets/images/EcoRiseLogo.svg";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "../Button/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Michroma, Jura, Poppins } from "next/font/google";
 
 const PoppinsFont = Poppins({
@@ -35,11 +35,24 @@ const NavItem = tw.li``;
 const Header = function () {
     const [btnText, setBtnText] = useState("Buy ECO");
     const [nav, setNav] = useState(false);
+    const mobile_menu_ref = useRef<HTMLDivElement>(null);
 
     const btnMouseLeave = (): void => {
         setBtnText("Connect Wallet");
     }
-
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+          if (nav && mobile_menu_ref.current && !mobile_menu_ref.current.contains(event.target as Node)) {
+            setNav(!nav);
+          }
+        }
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+          document.removeEventListener('click', handleClickOutside);
+        };
+      }, [nav, mobile_menu_ref]
+    );
+    
     return (
         <HeaderRoot>
             <div className="flex container mx-auto max-w-8xl justify-between">
@@ -108,7 +121,7 @@ const Header = function () {
                     />
                 </div>
                 {nav && (
-                    <div onClick={() => setNav(!nav)} className="fixed top-40 right-0 z-40">
+                    <div onClick={() => setNav(!nav)} ref={mobile_menu_ref} className="fixed absolute top-40 right-0 z-40">
                         <div className="dark:bg-primary bg-white px-6 py-6 opacity-100 border dark:border-white border-black border-1">
                             <menu className="text-3xl ">
                                 <li className=""><Link href={'/tokenize'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Tokenize</Link></li>
@@ -116,7 +129,7 @@ const Header = function () {
                                 <li className="pt-6"><Link href={'/'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Marketplace</Link></li>
                                 <li className="pt-6"><Link href={'/'} className={`${PoppinsFont.className} dark:text-white text-primary`}>Dashboard</Link></li>
                                 <li className="pt-6"><Link href={'/about-us'} className={`${PoppinsFont.className} dark:text-white text-primary`}>AboutUs</Link></li>
-                                <li className="pt-6"><Link href={'/'} className={`${PoppinsFont.className} dark:text-white text-primary`}>{btnText}</Link></li>
+                                <li className="pt-6 pb-12"><Link href={'/'} className={`${PoppinsFont.className} dark:text-white text-primary`}>{btnText}</Link></li>
                             </menu>
                         </div>
                     </div>
