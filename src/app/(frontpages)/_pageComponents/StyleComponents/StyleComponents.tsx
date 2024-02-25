@@ -115,7 +115,7 @@ export const OverlapSection = tw.div`
 
 export const OverlapContainer = tw.div`
     flex items-center
-    max-w-screen-2xl 
+    max-w-screen-2xl m-auto
 `;
 
 export const OverlayCard = tw.div`
@@ -155,7 +155,7 @@ export const TestimonialSection = tw.div`
 
 export const TestimonialContainer = tw.div`
     flex items-s gap-10
-    max-w-screen-2xl md:mx-5
+    max-w-screen-2xl m-auto
 `;
 
 export const TeamsQouteContainer = tw.div`
