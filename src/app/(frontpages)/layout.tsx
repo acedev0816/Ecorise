@@ -9,6 +9,7 @@ import Footer from "./_pageComponents/Footer/Footer";
 import useTheme from "@/hooks/useTheme";
 import { useEffect, useState } from "react";
 import ThemeToggler from "./_pageComponents/ThemeToggler/ThemeToggler";
+import WagmiProvider from "../../providers/wagmi-provider";
 
 const Wrapper = tw.div``;
 
@@ -22,21 +23,22 @@ const LandingPageLayout = function ({
 
   useEffect(() => {
     setMounted(true);
-    const currentTheme = localStorage.getItem('theme');
-    if(currentTheme === "dark") 
-      setTheme("dark");
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark") setTheme("dark");
     else setTheme("light");
   }, []);
 
   return (
     <>
       {isMounted && (
-        <Wrapper>
-          <ThemeToggler themeChange={setTheme} />
-          <Header />
-          {children}
-          <Footer />
-        </Wrapper>
+        <WagmiProvider>
+          <Wrapper>
+            <ThemeToggler themeChange={setTheme} />
+            <Header />
+            {children}
+            <Footer />
+          </Wrapper>
+        </WagmiProvider>
       )}
     </>
   );

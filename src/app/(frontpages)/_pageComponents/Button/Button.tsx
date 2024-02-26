@@ -82,11 +82,11 @@ const ButtonVariants = cva(
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof ButtonVariants>;
 
-const Button = function({ variant, size, rounded, fontFamily, value, className }: ButtonProps){
+const Button = function({ variant, size, rounded, fontFamily, value, className, ...others }: ButtonProps){
 
     const ButtonRoot = tw.button``;
 
-    return <ButtonRoot className={cx(ButtonVariants({variant, size, rounded, fontFamily, className}))}>{value}</ButtonRoot>
+    return <ButtonRoot className={cx(ButtonVariants({variant, size, rounded, fontFamily, className}))} {...others}>{value}</ButtonRoot>
 
 }
 
