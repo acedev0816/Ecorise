@@ -12,8 +12,22 @@ import Button from "../_pageComponents/Button/Button";
 import { FolderIcon } from "@heroicons/react/24/solid";
 import styles from "../front.module.css";
 import axios from "../../../util/axios";
+import Select from 'react-dropdown-select';
+import Image from "next/image";
 
 export default function Page() {
+  type ChainNetOptionStruct = {
+    id: string;
+    name: string;
+    src: string;
+  }
+
+  const netOptionArray: ChainNetOptionStruct[] = [
+    { id: "bitcoin", name: 'bitcoin', src: '/bitcoin3.svg' },
+    { id: "ethereum", name: 'ethereum', src: '/eth.svg' }
+  ]
+  const [selected, setSelected] = useState<ChainNetOptionStruct[]>([{ id: "bitcoin", name: 'bitcoin', src: '/bitcoin3.svg' }]);
+
   const [dragging, setDragging] = useState(false);
   const [data, setData] = useState<any>({
     title: '',
@@ -240,18 +254,55 @@ export default function Page() {
             Select the blockchain platform to mint your NFT.
           </label>
           <div className="mt-2">
-            <select
-              name="nft-title"
-              id="nft-title"
-              className={`${styles.input}`}
+            <Select
+              options={netOptionArray}
+              values={selected}
+              labelField="name"
+              valueField="id"
+              closeOnScroll={true}
+              className={`${styles.select}`}
+              onChange={([col]) => {
+                setSelected([col]);
+              }}
+              itemRenderer={({ item, methods }) => (
+                <div
+                  className={`${styles.collection}`}
+                  onClick={() => {
+                    methods.clearAll();
+                    methods.addItem(item);
+                  }}
             >
-              <option value="bitcoin" title="/Untitled.png">
-                Bitcoin
-              </option>
-              <option value="Ethereum" title="/eth.svg">
-                Ethereum
-              </option>
-            </select>
+                  <Image
+                    src={item.src}
+                    alt="EcoRise"
+                    width={32}
+                    height={32}
+                    className={`${styles.collectionLogo}`}
+                  />
+                  <div className={`${styles.collectionName}`}>
+                    {item.name}
+                  </div>
+                </div>
+              )}
+              contentRenderer={({ props: { values } }) =>
+                values.length > 0 ? (
+                  <div className={`${styles.collection}`}>
+                    <Image
+                      src={values[0].src}
+                      alt="EcoRise"
+                      width={32}
+                      height={32}
+                      className={`${styles.collectionLogo}`}
+                    />
+                    <div className={`${styles.collectionName}`}>
+                      {values[0].name}
+                    </div>
+                  </div>
+                ) : (
+                  <div className={`${styles.collection}`} />
+                )
+              }
+            />
           </div>
           <div></div>
           <Button

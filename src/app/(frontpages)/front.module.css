@@ -1,4 +1,4 @@
-.input{
+.input {
     padding: 20px 15px;
     border: 1px solid var(--text-color);
     border-radius: 12px;
@@ -7,7 +7,8 @@
     font-size: 18px;
     width: 100%;
 }
-.inputdashboard{
+
+.inputdashboard {
     padding: 11px 10px;
     border: 1px solid var(--text-color);
     color: var(--text-color);
@@ -16,14 +17,47 @@
     width: 100%;
 }
 
-.bitcoin{
-    background-image:url(/bitcoin3.svg);
+.select {
+    padding: 12px 15px !important;
+    border: 1px solid var(--text-color) !important;
+    border-radius: 12px !important;
+    color: var(--text-color) !important;
+    background: var(--bg-filled-color) !important;
+    font-size: 18px !important;
+    width: 100% !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+}
+
+.collection {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: var(--bg-filled-color) !important;
+}
+
+.collectionLogo {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--bg-filled-color) !important;
+}
+
+.collectionName {
+    margin-left: 12px;
+    font-size: 18px;
+    color: var(--text-color);
+    background: var(--bg-filled-color) !important;
+}
+
+.bitcoin {
+    background-image: url(/bitcoin3.svg);
     width: 35px;
     height: 35px;
 }
 
-.ethereum{
-    background-image:url(/eth.svg);
+.ethereum {
+    background-image: url(/eth.svg);
     width: 35px;
     height: 35px;
-} 
+}
