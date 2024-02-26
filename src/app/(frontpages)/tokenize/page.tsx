@@ -66,7 +66,7 @@ export default function Page() {
       formData.append("duration", data.duration);
 
       axios
-        .post("/nft/mint", formData, {
+        .post("/api/nft/mint", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
