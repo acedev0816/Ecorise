@@ -17,14 +17,14 @@ import Image from "next/image";
 
 export default function Page() {
   type ChainNetOptionStruct = {
-    id: string;
-    name: string;
+    value: string;
+    label: string;
     src: string;
   };
 
   const netOptionArray: ChainNetOptionStruct[] = [
-    { id: "bitcoin", name: 'bitcoin', src: '/bitcoin3.svg' },
-    { id: "ethereum", name: 'ethereum', src: '/eth.svg' }
+    { value: "bitcoin", label: 'bitcoin', src: '/bitcoin3.svg' },
+    { value: "ethereum", label: 'ethereum', src: '/eth.svg' }
   ];
 
   type NFTCategoryStruct = {
@@ -40,7 +40,7 @@ export default function Page() {
   ];
 
   const [category, setCategory] = useState<NFTCategoryStruct[]>([{ value: "music", label: "Music NFTs" }]);
-  const [netSelected, setNetSelected] = useState<ChainNetOptionStruct[]>([{ id: "bitcoin", name: 'bitcoin', src: '/bitcoin3.svg' }]);
+  const [netSelected, setNetSelected] = useState<ChainNetOptionStruct[]>([{ value: "bitcoin", label: 'bitcoin', src: '/bitcoin3.svg' }]);
   const [dragging, setDragging] = useState(false);
   const [data, setData] = useState<any>({
     title: '',
@@ -48,6 +48,7 @@ export default function Page() {
     category: 'music',
     tags: '',
     duration: '',
+    platform: 'bitcoin'
   })
 
   const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
@@ -306,8 +307,6 @@ export default function Page() {
               options={netOptionArray}
               name="nft-platform"
               values={netSelected}
-              labelField="name"
-              valueField="id"
               closeOnScroll={true}
               className={`${styles.select}`}
               closeOnClickInput={true}
@@ -330,7 +329,7 @@ export default function Page() {
                     className={`${styles.collectionLogo}`}
                   />
                   <div className={`${styles.collectionName}`}>
-                    {item.name}
+                    {item.label}
                   </div>
                 </div>
               )}
@@ -345,7 +344,7 @@ export default function Page() {
                       className={`${styles.collectionLogo}`}
                     />
                     <div className={`${styles.collectionName}`}>
-                      {values[0].name}
+                      {values[0].label}
                     </div>
                   </div>
                 ) : (
