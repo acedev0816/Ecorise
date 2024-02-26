@@ -33,22 +33,41 @@
     display: flex;
     align-items: center;
     padding: 5px 10px;
-    background: var(--bg-filled-color) !important;
+    background: var(--bg-filled-color);
+}
+
+.collection:hover {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: rgb(55,95,204) !important;
+}
+
+.collectioninput {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    background: var(--bg-filled-color);
 }
 
 .collectionLogo {
     width: 34px;
     height: 34px;
+    margin-right: 12px;
     border-radius: 50%;
-    background: var(--bg-filled-color) !important;
 }
 
 .collectionName {
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+/* .collectionName:hover {
     margin-left: 12px;
     font-size: 18px;
     color: var(--text-color);
     background: var(--bg-filled-color) !important;
-}
+} */
 
 .bitcoin {
     background-image: url(/bitcoin3.svg);

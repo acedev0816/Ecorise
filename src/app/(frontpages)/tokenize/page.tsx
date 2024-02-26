@@ -20,20 +20,33 @@ export default function Page() {
     id: string;
     name: string;
     src: string;
-  }
+  };
 
   const netOptionArray: ChainNetOptionStruct[] = [
     { id: "bitcoin", name: 'bitcoin', src: '/bitcoin3.svg' },
     { id: "ethereum", name: 'ethereum', src: '/eth.svg' }
-  ]
-  const [selected, setSelected] = useState<ChainNetOptionStruct[]>([{ id: "bitcoin", name: 'bitcoin', src: '/bitcoin3.svg' }]);
+  ];
 
+  type NFTCategoryStruct = {
+    value: string;
+    label: string;
+  };
+
+  const categoryArray: NFTCategoryStruct[] = [
+    { value: "music", label: "Music NFTs" },
+    { value: "game", label: "Gaming NFTs" },
+    { value: "artwork", label: "Artwork" },
+    { value: "identity", label: "Identity" }
+  ];
+
+  const [category, setCategory] = useState<NFTCategoryStruct[]>([{ value: "music", label: "Music NFTs" }]);
+  const [netSelected, setNetSelected] = useState<ChainNetOptionStruct[]>([{ id: "bitcoin", name: 'bitcoin', src: '/bitcoin3.svg' }]);
   const [dragging, setDragging] = useState(false);
   const [data, setData] = useState<any>({
     title: '',
     description: '',
     category: 'music',
-    tags:'',
+    tags: '',
     duration: '',
   })
 
@@ -65,7 +78,7 @@ export default function Page() {
   };
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const onTokenize = (event:FormEvent) => {
+  const onTokenize = (event: FormEvent) => {
     event.preventDefault();
     alert("mint");
     console.log("data", data);
@@ -122,9 +135,8 @@ export default function Page() {
             Please upload your file(Image, Video, Audio).
           </label>
           <div
-            className={`mt-2 flex justify-center rounded-lg border border-dashed border-white-900/25 px-6 py-10 ${
-              dragging ? "bg-gray-200" : ""
-            }`}
+            className={`mt-2 flex justify-center rounded-lg border border-dashed border-white-900/25 px-6 py-10 ${dragging ? "bg-gray-200" : ""
+              }`}
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}
             onDragOver={handleDragOver}
@@ -171,11 +183,11 @@ export default function Page() {
               className={`${styles.input}`}
               placeholder="e.g. “Digital Artwork Title”"
               value={data.title}
-              onChange={(e)=>setData({...data, title: e.target.value})}
+              onChange={(e) => setData({ ...data, title: e.target.value })}
             />
           </div>
           <label
-            htmlFor="nft-title"
+            htmlFor="nft-description"
             className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
           >
             Provide a brief description of your NFT
@@ -183,23 +195,59 @@ export default function Page() {
           <div className="mt-2">
             <textarea
               rows={3}
-              name="nft-title"
-              id="nft-title"
-              autoComplete="nft-title"
+              name="nft-description"
+              id="nft-description"
+              autoComplete="nft-description"
               className={`${styles.input}`}
               placeholder="e.g. “This Artwork represents the journey of self-discovery.”"
               value={data.description}
-              onChange={(e)=>setData({...data, description: e.target.value})}
+              onChange={(e) => setData({ ...data, description: e.target.value })}
             />
           </div>
           <label
-            htmlFor="nft-title"
+            htmlFor="category"
             className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
           >
             What is the category of your NFT?
           </label>
           <div className="mt-2">
-            <select
+            <Select
+              options={categoryArray}
+              name="category"
+              values={category}
+              closeOnScroll={true}
+              className={`${styles.select}`}
+              closeOnClickInput={true}
+              onChange={([col]) => {
+                setCategory([col]);
+              }}
+              itemRenderer={({ item, methods }) => (
+                <div
+                  className={`${styles.collection}`}
+                  onClick={() => {
+                    methods.clearAll();
+                    methods.addItem(item);
+                  }}
+                >
+                  <div className={`${styles.collectionName}`}>
+                    {item.label}
+                  </div>
+                </div>
+              )}
+              contentRenderer={({ props: { values } }) =>
+                values.length > 0 ? (
+                  <div className={`${styles.collectioninput}`}>
+                    <div className={`${styles.collectionName}`}>
+                      {values[0].label}
+                    </div>
+                  </div>
+                ) : (
+                  <div className={`${styles.collectioninput}`} />
+                )
+              }
+            />
+{/* to acer : Maybe you should modify my onChage function. I did not delete your code. please repair it. */}
+            {/* <select
               name="category"
               className={`${styles.input}`}
               value={data.category}
@@ -209,10 +257,10 @@ export default function Page() {
               <option value="game">Gaming NFTs</option>
               <option value="artwork">Artwork</option>
               <option value="identity">Identity</option>
-            </select>
+            </select> */}
           </div>
           <label
-            htmlFor="nft-title"
+            htmlFor="nft-tag"
             className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
           >
             Add tags to your NFT (Seprated by Commas).
@@ -220,17 +268,17 @@ export default function Page() {
           <div className="mt-2">
             <input
               type="text"
-              name="nft-title"
-              id="nft-title"
-              autoComplete="nft-title"
+              name="nft-tag"
+              id="nft-tag"
+              autoComplete="nft-tag"
               className={`${styles.input}`}
               placeholder="e.g. “Abstract, Contemporary, Digital Art”"
-              onChange={(e)=>setData({...data, tags: e.target.value})}
+              onChange={(e) => setData({ ...data, tags: e.target.value })}
               value={data.tags}
             />
           </div>
           <label
-            htmlFor="nft-title"
+            htmlFor="tokenize-duration"
             className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
           >
             Specify the duration of the tokenized data.
@@ -238,17 +286,17 @@ export default function Page() {
           <div className="mt-2">
             <input
               type="text"
-              name="nft-title"
-              id="nft-title"
-              autoComplete="nft-title"
+              name="tokenize-duration"
+              id="tokenize-duration"
+              autoComplete="tokenize-duration"
               className={`${styles.input}`}
               placeholder="e.g. “30 Days”"
               value={data.duration}
-              onChange={(e)=>setData({...data, duration: e.target.value})}
+              onChange={(e) => setData({ ...data, duration: e.target.value })}
             />
           </div>
           <label
-            htmlFor="nft-title"
+            htmlFor="nft-platform"
             className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
           >
             Select the blockchain platform to mint your NFT.
@@ -256,13 +304,15 @@ export default function Page() {
           <div className="mt-2">
             <Select
               options={netOptionArray}
-              values={selected}
+              name="nft-platform"
+              values={netSelected}
               labelField="name"
               valueField="id"
               closeOnScroll={true}
               className={`${styles.select}`}
+              closeOnClickInput={true}
               onChange={([col]) => {
-                setSelected([col]);
+                setNetSelected([col]);
               }}
               itemRenderer={({ item, methods }) => (
                 <div
@@ -271,7 +321,7 @@ export default function Page() {
                     methods.clearAll();
                     methods.addItem(item);
                   }}
-            >
+                >
                   <Image
                     src={item.src}
                     alt="EcoRise"
@@ -286,7 +336,7 @@ export default function Page() {
               )}
               contentRenderer={({ props: { values } }) =>
                 values.length > 0 ? (
-                  <div className={`${styles.collection}`}>
+                  <div className={`${styles.collectioninput}`}>
                     <Image
                       src={values[0].src}
                       alt="EcoRise"
@@ -299,7 +349,7 @@ export default function Page() {
                     </div>
                   </div>
                 ) : (
-                  <div className={`${styles.collection}`} />
+                  <div className={`${styles.collectioninput}`} />
                 )
               }
             />
