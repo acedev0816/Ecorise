@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useCallback, useRef, useState } from "react";
 import {
   HeroContainer,
   SubHeroSection,
@@ -12,8 +12,12 @@ import Button from "../_pageComponents/Button/Button";
 import { FolderIcon } from "@heroicons/react/24/solid";
 import styles from "../front.module.css";
 import axios from "../../../util/axios";
-import Select from 'react-dropdown-select';
+import Select from "react-dropdown-select";
 import Image from "next/image";
+import { useAccount } from "wagmi";
+
+const MAX_RETRY = 8;
+const CHECK_INTERVAL = 4000;
 
 export default function Page() {
   type ChainNetOptionStruct = {
@@ -22,9 +26,15 @@ export default function Page() {
     src: string;
   };
 
+  const { address } = useAccount();
+  const [minting, setMinting] = useState<boolean>(false);
+
+  const actionIdRef = useRef<string>("");
+  const counterRef = useRef<number>(0);
+
   const netOptionArray: ChainNetOptionStruct[] = [
-    { value: "bitcoin", label: 'bitcoin', src: '/bitcoin3.svg' },
-    { value: "ethereum", label: 'ethereum', src: '/eth.svg' }
+    { value: "bitcoin", label: "bitcoin", src: "/bitcoin3.svg" },
+    { value: "ethereum", label: "ethereum", src: "/eth.svg" },
   ];
 
   type NFTCategoryStruct = {
@@ -36,21 +46,26 @@ export default function Page() {
     { value: "music", label: "Music NFTs" },
     { value: "game", label: "Gaming NFTs" },
     { value: "artwork", label: "Artwork" },
-    { value: "identity", label: "Identity" }
+    { value: "identity", label: "Identity" },
   ];
 
-  const [category, setCategory] = useState<NFTCategoryStruct[]>([{ value: "music", label: "Music NFTs" }]);
-  const [netSelected, setNetSelected] = useState<ChainNetOptionStruct[]>([{ value: "bitcoin", label: 'bitcoin', src: '/bitcoin3.svg' }]);
+  const [category, setCategory] = useState<NFTCategoryStruct[]>([
+    { value: "music", label: "Music NFTs" },
+  ]);
+  const [netSelected, setNetSelected] = useState<ChainNetOptionStruct[]>([
+    { value: "bitcoin", label: "bitcoin", src: "/bitcoin3.svg" },
+  ]);
   const [dragging, setDragging] = useState(false);
   const [data, setData] = useState<any>({
-    title: '',
-    description: '',
-    category: 'music',
-    tags: '',
-    duration: '',
-    platform: 'bitcoin'
-  })
-
+    title: "",
+    description: "",
+    category: "music",
+    tags: "",
+    duration: "",
+    platform: "bitcoin",
+  });
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const [tokenURL, setTokenURL] = useState<string>("");
   const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();
@@ -63,29 +78,41 @@ export default function Page() {
     setDragging(false);
   };
 
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragging(true);
-  };
-
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragging(false);
-    const file = e.dataTransfer.files[0];
-    console.log("File dropped:", file);
-    // Handle the dropped file here, e.g., upload it or process it.
-  };
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const onTokenize = (event: FormEvent) => {
-    event.preventDefault();
-    alert("mint");
-    console.log("data", data);
-    if (fileRef.current?.files) {
+  const updateMintStatus = async () => {
+    console.log("updateMintStatus: start");
+    const res = await axios.get(`/api/nft/status?id=${actionIdRef.current}`);
+    console.log("updateMintStatus", res);
+    counterRef.current += 1;
 
+    // check if success
+    const status = res?.data?.data?.onChain?.status;
+    if (status === "success") {
+      const { contractAddress, tokenId } = res?.data?.data?.onChain;
+      const url = `https://mumbai.polygonscan.com/token/${contractAddress}?a=${tokenId}`;
+      setTokenURL(url);
+      setShowModal(true);
+      setMinting(false);
+    } else if (counterRef.current < MAX_RETRY) {
+      setTimeout(updateMintStatus, CHECK_INTERVAL);
+    } else{
+      setMinting(false);
+    }
+  };
+
+  const onTokenize = async (event: FormEvent) => {
+    event.preventDefault();
+
+    if (!address) {
+      alert("Please connect wallet.");
+      return;
+    }
+    // console.log("data", data);
+    if (fileRef.current?.files) {
+      setMinting(true);
       const formData = new FormData();
+      formData.append("recipient", address);
       formData.append("image", fileRef.current.files[0]);
       formData.append("title", data.title);
       formData.append("category", data.category);
@@ -93,18 +120,16 @@ export default function Page() {
       formData.append("description", data.description);
       formData.append("duration", data.duration);
 
-      axios
-        .post("/api/nft/mint", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        })
-        .then((res) => {
-          console.log("res", res);
-        })
-        .catch((err) => {
-          console.log("error", err);
-        });
+      const res = await axios.post("/api/nft/mint", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      const id = res?.data?.data?.actionId;
+      if (id) {
+        actionIdRef.current = id;
+        setTimeout(updateMintStatus, CHECK_INTERVAL);
+      }
     }
   };
 
@@ -136,12 +161,13 @@ export default function Page() {
             Please upload your file(Image, Video, Audio).
           </label>
           <div
-            className={`mt-2 flex justify-center rounded-lg border border-dashed border-white-900/25 px-6 py-10 ${dragging ? "bg-gray-200" : ""
-              }`}
+            className={`mt-2 flex justify-center rounded-lg border border-dashed border-white-900/25 px-6 py-10 ${
+              dragging ? "bg-gray-200" : ""
+            }`}
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}
-            onDragOver={handleDragOver}
-            onDrop={handleDrop}
+            onDragOver={handleDragEnter}
+            onDrop={handleDragLeave}
           >
             <div className="text-center">
               <FolderIcon
@@ -202,7 +228,9 @@ export default function Page() {
               className={`${styles.input}`}
               placeholder="e.g. “This Artwork represents the journey of self-discovery.”"
               value={data.description}
-              onChange={(e) => setData({ ...data, description: e.target.value })}
+              onChange={(e) =>
+                setData({ ...data, description: e.target.value })
+              }
             />
           </div>
           <label
@@ -230,9 +258,7 @@ export default function Page() {
                     methods.addItem(item);
                   }}
                 >
-                  <div className={`${styles.collectionName}`}>
-                    {item.label}
-                  </div>
+                  <div className={`${styles.collectionName}`}>{item.label}</div>
                 </div>
               )}
               contentRenderer={({ props: { values } }) =>
@@ -247,7 +273,7 @@ export default function Page() {
                 )
               }
             />
-{/* to acer : Maybe you should modify my onChage function. I did not delete your code. please repair it. */}
+            {/* to acer : Maybe you should modify my onChage function. I did not delete your code. please repair it. */}
             {/* <select
               name="category"
               className={`${styles.input}`}
@@ -328,9 +354,7 @@ export default function Page() {
                     height={32}
                     className={`${styles.collectionLogo}`}
                   />
-                  <div className={`${styles.collectionName}`}>
-                    {item.label}
-                  </div>
+                  <div className={`${styles.collectionName}`}>{item.label}</div>
                 </div>
               )}
               contentRenderer={({ props: { values } }) =>
@@ -361,9 +385,61 @@ export default function Page() {
             fontFamily="Poppins"
             rounded="xl3"
             value="Tokenize"
+            loading={minting}
           />
         </div>
       </form>
+      {showModal && (
+        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+          <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            {/*content*/}
+            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white dark:bg-sky-800 outline-none focus:outline-none">
+              {/*header*/}
+              <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                <h3 className="text-3xl font-semibold">Ecorise</h3>
+                <button
+                  className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
+                  onClick={() => setShowModal(false)}
+                >
+                  <span className="bg-transparent text-white h-6 w-6 text-2xl block outline-none focus:outline-none">
+                    ×
+                  </span>
+                </button>
+              </div>
+              {/*body*/}
+              <div className="relative p-6 flex-auto">
+                <p className="my-2 text-blueGray-500 text-lg leading-relaxed">
+                  Successfully minted an &nbsp;
+                  <a
+                    href={tokenURL}
+                    className="font-medium text-blue-600 dark:text-sky-300 hover:underline"
+                  >
+                    NFT
+                  </a>
+                </p>
+              </div>
+              {/*footer*/}
+              <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                <button
+                  className="text-red-500 background-transparent hover:bg-slate-200 dark:hover:bg-sky-900 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                >
+                  Close
+                </button>
+                {/* <button
+                className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                type="button"
+                // onClick={() => setShowModal(false)}
+              >
+                Save Changes
+              </button> */}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {showModal && <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>}
     </div>
   );
 }
