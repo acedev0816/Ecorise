@@ -60,10 +60,10 @@ export default function Page() {
   const [data, setData] = useState<any>({
     title: "",
     description: "",
-    category: "music",
+    category: "real_asset",
     tags: "",
     duration: "",
-    platform: "bitcoin",
+    platform: "polygon",
   });
   const [showModal, setShowModal] = useState<boolean>(false);
   const [tokenURL, setTokenURL] = useState<string>("");
