@@ -33,8 +33,9 @@ export default function Page() {
   const counterRef = useRef<number>(0);
 
   const netOptionArray: ChainNetOptionStruct[] = [
-    { value: "bitcoin", label: "bitcoin", src: "/bitcoin3.svg" },
+    { value: "polygon ", label: "polygon ", src: "/polygon.png" },
     { value: "ethereum", label: "ethereum", src: "/eth.svg" },
+    { value: "solana", label: "solana", src: "/solana.png" },
   ];
 
   type NFTCategoryStruct = {
@@ -43,17 +44,17 @@ export default function Page() {
   };
 
   const categoryArray: NFTCategoryStruct[] = [
-    { value: "music", label: "Music NFTs" },
-    { value: "game", label: "Gaming NFTs" },
-    { value: "artwork", label: "Artwork" },
-    { value: "identity", label: "Identity" },
+    { value: "real_asset", label: "Real World Assets" },
+    { value: "regen_finance", label: "Regenerative Finance" },
+    { value: "climate", label: "Climate Data" },
+    { value: "other", label: "Other" },
   ];
 
   const [category, setCategory] = useState<NFTCategoryStruct[]>([
-    { value: "music", label: "Music NFTs" },
+    { value: "real_asset", label: "Real World Assets" },
   ]);
   const [netSelected, setNetSelected] = useState<ChainNetOptionStruct[]>([
-    { value: "bitcoin", label: "bitcoin", src: "/bitcoin3.svg" },
+    { value: "polygon", label: "polygon", src: "/polygon.png" },
   ]);
   const [dragging, setDragging] = useState(false);
   const [data, setData] = useState<any>({
@@ -161,9 +162,8 @@ export default function Page() {
             Please upload your file(Image, Video, Audio).
           </label>
           <div
-            className={`mt-2 flex justify-center rounded-lg border border-dashed border-white-900/25 px-6 py-10 ${
-              dragging ? "bg-gray-200" : ""
-            }`}
+            className={`mt-2 flex justify-center rounded-lg border border-dashed border-white-900/25 px-6 py-10 bg-contain bg-center bg-no-repeat`}
+            style={dragging ? {backgroundImage: "url('/uploadback.png')" } : {}}
             onDragEnter={handleDragEnter}
             onDragLeave={handleDragLeave}
             onDragOver={handleDragEnter}
@@ -331,6 +331,7 @@ export default function Page() {
           <div className="mt-2">
             <Select
               options={netOptionArray}
+              disabled={true}
               name="nft-platform"
               values={netSelected}
               closeOnScroll={true}
