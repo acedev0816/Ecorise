@@ -11,6 +11,7 @@ import ProjectCard from "./_pageComponents/ProjectCard/ProjectCard";
 import Testimonial from "./_pageComponents/Testimonial/Testimonial";
 import HeroAnimationSVG from "./_pageComponents/HeroAnimationSVG/HeroAnimationSVG";
 import styles from './front.module.css';
+import Link from "next/link";
 
 const LandingPage = function () {
 
@@ -175,7 +176,7 @@ const LandingPage = function () {
                     </IncomeCol>
                 </IncomeContainer>
             </IncomeSection>
- 
+
             <OverlapSection>
                 <OverlapContainer className="flex-col md:flex-row gap-4">
                     <OverlayCard className="md:w-1/2">
@@ -194,10 +195,9 @@ const LandingPage = function () {
                     <Typography variant="h4" fontFamily="Jura" className="font-bold text-center" content="Invest into projects that are ecosystem and climate positive." />
                 </ProjectContainer>
                 <ProjectContainer className="flex-col md:flex-row">
-                    <ProjectCard title="Example Project" content="Lorem Ipsum dolor sit amet" image="/projects/project-1.png" />
-                    <ProjectCard title="Example Project" content="Lorem Ipsum dolor sit amet" image="/projects/project-2.png" />
-                    <ProjectCard title="Example Project" content="Lorem Ipsum dolor sit amet" image="/projects/project-3.png" />
-                    <ProjectCard title="Example Project" content="Lorem Ipsum dolor sit amet" image="/projects/project-4.png" />
+                    <ProjectCard title="Ambodipesy, Madagascar" content="Reforestation" image="/projects/project-1.png" />
+                    <ProjectCard title="Barberton, South Africa" content="Regenerative Agriculture" image="/projects/project-2.png" />
+                    <ProjectCard title="Kentucky, USA" content="Mining Rehabilitation" image="/projects/project-3.png" />
                 </ProjectContainer>
                 <div className="flex items-center mx-auto md:w-1/2">
                     <input
@@ -210,6 +210,95 @@ const LandingPage = function () {
                     <Button className="ml-0 px-1 rounded-r-lg" variant="gradient" size="lg" fontFamily="Poppins" value="Subscribe" />
                 </div>
             </ProjectSection>
+
+            <PartnersSection>
+                <PartnersContainer>
+                    <div className="flex items-center">
+                        <Image
+                            src={'/partners/OpenForestProtocol.png'}
+                            alt="Meta Mask"
+                            width={100}
+                            height={100}
+                            className="mx-6 dark:block hidden"
+                        />
+                        <Link
+                            href={"https://www.openforestprotocol.org/"}
+                        >
+                            <Typography variant="h4" fontFamily="Jura" className="font-bold" content="Open Forest Protocol" />
+                        </Link>
+                    </div>
+                    <div className="flex items-center">
+                        <Image
+                            src={'/partners/dClimate.png'}
+                            alt="Meta Mask"
+                            width={100}
+                            height={100}
+                            className="mx-6 dark:block hidden"
+                        />
+                        <Link
+                            href={"https://www.dclimate.net/"}
+                        >
+                            <Typography variant="h4" fontFamily="Jura" className="font-bold" content="dClimate" />
+                        </Link>
+                    </div>
+                    <div className="flex items-center">
+                        <Image
+                            src={'/partners/solidworld.png'}
+                            alt="Meta Mask"
+                            width={100}
+                            height={100}
+                            className="mx-6 dark:block hidden"
+                        />
+                        <Link
+                            href={"https://www.solid.world/"}
+                        >
+                            <Typography variant="h4" fontFamily="Jura" className="font-bold" content="Solid World" />
+                        </Link>
+                    </div>
+                    <div className="flex items-center">
+                        <Image
+                            src={'/partners/digitalgaia.png'}
+                            alt="Meta Mask"
+                            width={100}
+                            height={100}
+                            className="mx-6 dark:block hidden"
+                        />
+                        <Link
+                            href={"https://www.digitalgaia.earth/"}
+                        >
+                            <Typography variant="h4" fontFamily="Jura" className="font-bold" content="Digital Gaia" />
+                        </Link>
+                    </div>
+                    <div className="flex items-center">
+                        <Image
+                            src={'/partners/Shamba.png'}
+                            alt="Meta Mask"
+                            width={100}
+                            height={100}
+                            className="mx-6 dark:block hidden"
+                        />
+                        <Link
+                            href={"https://shamba.network/"}
+                        >
+                            <Typography variant="h4" fontFamily="Jura" className="font-bold" content="Shamba Network" />
+                        </Link>
+                    </div>
+                    <div className="flex items-center">
+                        <Image
+                            src={'/partners/futurequestdao1.png'}
+                            alt="Meta Mask"
+                            width={100}
+                            height={100}
+                            className="mx-6 dark:block hidden"
+                        />
+                        <Link
+                            href={"https://future.quest/"}
+                        >
+                            <Typography variant="h4" fontFamily="Jura" className="font-bold" content="Future Quest DAO" />
+                        </Link>
+                    </div>
+                </PartnersContainer>
+            </PartnersSection>
 
             <PartnersSection>
                 <PartnersContainer>

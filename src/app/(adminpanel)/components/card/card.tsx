@@ -42,7 +42,7 @@ const Card: FC<{
 
     return (
         <>
-            <div className={`${styles.card} ${props.gradientBg ? styles.cardBg : ''} ${!props.content ? styles.noContent : ''} ${props.cardSize === 'one' ? styles.cardFull : ''} ${props.cardSize === 'two' ? styles.cardTwo : ''} ${props.gradientColor === '2' ? styles.cardBg2 : ''} ${props.cardBoxSize === 'xs' ? styles.cardSmallHeight : ''} ${props.gradientColor === '3' ? styles.cardBg3 : ''} ${props.gradientColor === '4' ? styles.cardBg4 : ''}`}>
+            <div className={`${styles.card} ${props.gradientBg ? styles.cardBg : ''} ${!props.content ? styles.noContent : ''} ${props.cardSize === 'one' ? styles.cardFull : ''} ${props.cardSize === 'two' ? styles.cardTwo : ''} ${props.gradientColor === '2' ? styles.cardBg2 : ''} ${props.cardBoxSize === 'xs' ? styles.cardSmallHeight : ''} ${props.gradientColor === '3' ? styles.cardBg3 : ''} ${props.gradientColor === '4' ? styles.cardBg4 : ''} w-full md:w-1/3 mx-auto md:mx-0`}>
                 <h3 className={`${styles.cardHeading} ${JuraFont.className} `}>{props.title}</h3>
                 {props.content && props.contentSize === 'md' && <p className={`${styles.cardPara} ${styles.cardParaMd} ${props.contentFont === 'jura' ? JuraFont.className : MichromaFont.className}`}>{props.content}</p>}
                 {props.content && props.contentSize === 'xs' && <p className={`${styles.cardPara} ${styles.cardParaXs} ${props.contentFont === 'jura' ? JuraFont.className : MichromaFont.className}`}>{props.content}</p>}

@@ -36,7 +36,7 @@
 
 .input{
     padding: 20px 15px;
-    min-width: 516px;
+    width: 100%;
     border: 1px solid var(--text-color);
     border-radius: 12px;
     color: var(--text-color);
@@ -71,7 +71,7 @@
 
 .btnFilled{
     font-size: 14px;
-    min-width: 380px;
+    width: 100%;
     padding: 20px 10px;
     text-transform: uppercase;
     border-radius: 12px;

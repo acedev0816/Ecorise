@@ -35,9 +35,8 @@ export default function StackLandPage() {
 
     return (
         <>
-            <div className={styles.wrapper}>
-                <div className={`${styles.wrapperCol} ${styles.wrapperColEmpty}`}></div>
-                <div className={`${styles.wrapperCol} ${styles.wrapperColForm}`}>
+            <div className="flex gap-x-10 flex-col md:flex-row">
+                <div className="md:max-w-xl">
                     <Form>
                         <div className={styles.headingRow}>
                             <h3 className={styles.heading}>your property details below for ECO token yield estimate</h3>
@@ -66,12 +65,12 @@ export default function StackLandPage() {
                             <span className={styles.equal}></span>
                             <span className={styles.equal}></span>
                         </div>
-                        <div className={styles.cardRow}>
+                        <div>
                             <Card title='ECO Tokens Earned' content='--- --- --- ECO' cardSize='one' gradientBg={true} gradientColor='4'/>
                         </div>
                     </Form>
                 </div>
-                <div className={`${styles.wrapperCol} ${styles.wrapperColBtn}`}>
+                <div className="mt-10 md:mt-0">
                     <button className={styles.btnFilled}>Land Owner Application</button>
                 </div>
             </div>

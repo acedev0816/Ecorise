@@ -52,10 +52,10 @@ const AboutUs = function () {
               image="Patrick-T.Anderson.png"
             />
             <TeamProfile
-              title="Jocelyn Lee"
-              subTitle="-Communications Director"
-              bio="Highly skilled in company communications and relations, digital marketing and community building for 10+ Years."
-              image="Jocelyn-Lee.png"
+              title="Jas"
+              subTitle="-Business Development"
+              bio="Jas is a founding member of the TrustSwap core team and has helped incubate and launch over 50 blockchain projects. Jas has a passion for decentralization and web3 technology that can empower people and uplift humanity."
+              image="jas.jfif"
             />
           </TeamRow>
           <TeamRow>
@@ -66,10 +66,10 @@ const AboutUs = function () {
               image="Charl-Cilliers.png"
             />
             <TeamProfile
-              title="Kyle Hinchey"
-              subTitle="-CMO"
-              bio="5+ Years experience managing digital channels for B2C. Crypto investor, fund manager and builder. Skills in digital media, with a background in hard asset focused Venture Capital."
-              image="Kyle-Hinchey.png"
+              title="Viktor Kravchuk"
+              subTitle="-Full-stack developer"
+              bio="Skilled full stack developer with 7 years of expertise in blockchain and AI technologies. Proficient in creating innovative solutions that leverage both blockchain and AI to drive business success. Proven track record of delivering high-quality projects and leading development teams to success."
+              image="2.jpg"
             />
             <TeamProfile
               title="Etienne Berthelot"
@@ -82,9 +82,9 @@ const AboutUs = function () {
       </TeamSection>
 
       <AboutSection>
-          <AboutContainer className="items-center">
-              <Typography className="w-5/12 text-[42px] font-semibold" variant="h3" fontFamily="Jura" content="Advisors" />
-          </AboutContainer>
+        <AboutContainer className="items-center">
+          <Typography className="w-5/12 text-[42px] font-semibold" variant="h3" fontFamily="Jura" content="Advisors" />
+        </AboutContainer>
       </AboutSection>
 
       <TeamSection>
@@ -100,15 +100,10 @@ const AboutUs = function () {
               image="Sothy-Kol-Men.png"
             />
             <TeamProfile
-              title="Jeff Kirdeikis"
+              title="Aaron Levi Yahalom"
               subTitle=""
-              bio="Jeff is the Founder and CEO of TrustSwap. Jeff is a seasoned
-              cryptocurrency veteran and has helped over 40 projects launch
-              successfully raising more then 50M in financing. He is invested in
-              working with ECORISE and his companies can provide us with a
-              platform to launch our IDO, NFTs and assist us to introduce our
-              token to millions of users."
-              image="Jeff-Kirdeikis.png"
+              bio="GR, Clean air policies EU lobbyst, RWA tokenization expert, Sustainable Smart-cities advocate."
+              image="aaron.png"
             />
           </TeamRow>
         </TeamContainer>

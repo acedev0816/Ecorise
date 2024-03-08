@@ -2,31 +2,48 @@
 import useTheme from "@/hooks/useTheme";
 import Logo from "./components/logo/logo"
 import NavMenu from "./components/nav-menu/navMenu"
-import { useEffect } from "react";
+import MobileNav from "./components/nav-menu/mobileNav";
+import { useEffect, useState } from "react";
 import SideBar from "./components/sidebar/sidebar";
+import ThemeToggler from "../(frontpages)/_pageComponents/ThemeToggler/ThemeToggler";
+import Link from "next/link";
 
 
 export default function AdminPanelLayout({
-    children, // will be a page or nested layout
-  }: {
-    children: React.ReactNode
-  }) {
+  children, // will be a page or nested layout
+}: {
+  children: React.ReactNode
+}) {
 
-    const [colorTheme, setTheme] = useTheme();
+  const [isMounted, setMounted] = useState(false);
+  const [colorTheme, setTheme] = useTheme();
 
-    useEffect(() => {
-      setTheme("dark");
-    }, []);
+  useEffect(() => {
+    setMounted(true);
+    const currentTheme = localStorage.getItem("theme");
+    if (currentTheme === "dark") setTheme("dark");
+    else setTheme("light");
+  }, []);
 
-    return (
+  return (
+    <>
+      {isMounted && (
         <div className="adminPanel">
-           <SideBar>
+          <SideBar>
+            <Link href={"/"}>
               <Logo />
-              <NavMenu />
-            </SideBar> 
-            <section className="mainContent">
-              {children}
-            </section>
+            </Link>
+            <NavMenu />
+          </SideBar>
+          <section className="p-5 md:p-14 w-full md:w-77 md:min-w-[calc(100%-310px)] bg-right-bottom bg-no-repeat bg-auto"
+            style={{ backgroundImage: "url('/dashboard-bg.png')" }}
+          >
+            <MobileNav />
+            {children}
+          </section>
+          <ThemeToggler themeChange={setTheme} />
         </div>
-    )
-  }
+      )}
+    </>
+  )
+}

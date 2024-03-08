@@ -61,7 +61,7 @@ const Footer = function() {
                         <Image src={'/youtube.svg'} alt="Youtube" width={25} height={16} className="dark:block hidden" />
                         <Image src={'/youtube-light.svg'} alt="Youtube" width={25} height={16} className="dark:hidden block"/>
                     </Link>
-                    <Link href={'#'} className="text-xl text-white text-opacity-50 hover:text-opacity-100">
+                    <Link href={'https://discord.gg/uzXXpMSfzC'} className="text-xl text-white text-opacity-50 hover:text-opacity-100">
                         <Image src={'/discord.svg'} alt="Discord" width={25} height={16} className="dark:block hidden" />
                         <Image src={'/discord-light.svg'} alt="Discord" width={25} height={16} className="dark:hidden block" />
                     </Link>

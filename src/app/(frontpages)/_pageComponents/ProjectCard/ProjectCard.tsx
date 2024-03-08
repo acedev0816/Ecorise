@@ -26,8 +26,8 @@ const ProjectCard: FC<ProjectCardProps> = function({
         <Image
             src={image}
             alt={title}
-            width={240}
-            height={302}
+            width={266}
+            height={178}
             className="w-full mb-4 rounded-xl"
         />
         <Typography variant="h6" fontFamily="Jura" className="font-bold" content={title} />

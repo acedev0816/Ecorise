@@ -7,14 +7,6 @@
     margin-bottom: 9rem;
 }
 
-
-.formRow{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 100px;
-    column-gap: 20px;
-}
-
 .btn{
     padding: 22.5px 15px;
     border-radius: 12px;
@@ -43,7 +35,7 @@
 
 .input{
     padding: 18px 15px;
-    min-width: 516px;
+    width: 100%;
     background: none;
     border: 1px solid var(--text-color);
     border-radius: 12px;

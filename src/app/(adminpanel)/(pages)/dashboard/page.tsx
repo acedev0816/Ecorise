@@ -74,7 +74,7 @@ export default function DashboardPage() {
 
     return (
         <>
-            <div className={styles.cardRow}>
+            <div className={"flex flex-col md:flex-row md:flex-wrap justify-between md:gap-x-10 gap-y-3 md:gap-y-12"}>
                 {dashboardStats && dashboardStats.map((stat, index) => <Card
                     title={stat.title}
                     content={stat.content}

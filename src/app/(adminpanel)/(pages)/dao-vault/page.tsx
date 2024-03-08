@@ -8,38 +8,38 @@ import Image from "next/image";
 import { Michroma, Jura, Poppins } from "next/font/google";
 
 const MichromaFont = Michroma({
-  subsets: ["latin"],
-  weight: ["400"],
-  display: 'swap', adjustFontFallback: false
+    subsets: ["latin"],
+    weight: ["400"],
+    display: 'swap', adjustFontFallback: false
 });
 
 const JuraFont = Jura({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  display: 'swap', adjustFontFallback: false
+    subsets: ["latin"],
+    weight: ["400", "600", "700"],
+    display: 'swap', adjustFontFallback: false
 });
 
 const PoppinsFont = Poppins({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700"],
-  display: 'swap', adjustFontFallback: false
+    subsets: ["latin"],
+    weight: ["100", "200", "300", "400", "500", "600", "700"],
+    display: 'swap', adjustFontFallback: false
 });
 
 export default function DAOVaultPage() {
     const [colorTheme, setTheme] = useState("");
 
-    useEffect( () => { 
+    useEffect(() => {
         const storedTheme = localStorage.getItem("theme");
         if (storedTheme != null) setTheme(storedTheme);
 
-        if(document.querySelector(".mainContent") != null) {
-            document.querySelector(".mainContent")?.classList.add('no-bg'); 
+        if (document.querySelector(".mainContent") != null) {
+            document.querySelector(".mainContent")?.classList.add('no-bg');
         }
-    },[setTheme]);
-    
+    }, [setTheme]);
+
     return (
         <>
-            <div className={styles.cardRow}>
+            <div className="flex flex-wrap justify-center gap-y-9 mb-10 md:mb-24">
                 <Card
                     title="Total Land Staked"
                     content="--- HECTARES"
@@ -49,7 +49,7 @@ export default function DAOVaultPage() {
                     cardBoxSize="xs"
                 />
             </div>
-            <div className={styles.cardRow}>
+            <div className="flex flex-wrap justify-center gap-x-12 mb-10 md:mb-24 gap-y-3">
                 <Card
                     title="Treasure Balance"
                     content="$ --- --- ---"
@@ -60,112 +60,60 @@ export default function DAOVaultPage() {
                     content="$ --- --- ---"
                 />
             </div>
-            <div className={styles.btnRow}>
+            <div className="flex justify-center mb-10 md:mb-16">
                 <button className={styles.btnFilled}>Land Owner Application</button>
             </div>
-            <div className={styles.wrapperRow}>
-                <div className={`${styles.wrapperCol} ${styles.tableWrapper}`}>
-                    <div className={styles.table}>
-                        <div className={`${styles.tableRow} ${styles.tableHeader}`}>
-                            <div className={styles.tableCol}>
-                                <h3 className={`${styles.tableHeading} ${JuraFont.className}`}>Property</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableHeading} ${JuraFont.className}`}>Country</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableHeading} ${JuraFont.className}`}>Type</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableHeading} ${JuraFont.className}`}>Date</h3>
-                            </div>
-                            <div className={styles.tableCol}></div>
-                        </div>
-                        <div className={styles.tableRow}>
-                            <div className={styles.tableCol}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3>
-                            </div>
-                            <div className={styles.tableCol}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3>
-                            </div>
-                        </div>
-                        <div className={styles.tableRow}>
-                            <div className={styles.tableCol}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3>
-                            </div>
-                            <div className={styles.tableCol}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3>
-                            </div>
-                        </div>
-                        <div className={styles.tableRow}>
-                            <div className={styles.tableCol}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3>
-                            </div>
-                            <div className={styles.tableCol}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3>
-                            </div>
-                        </div>
-                        <div className={styles.tableRow}>
-                            <div className={styles.tableCol}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3>
-                            </div>
-                            <div className={styles.tableCol}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3>
-                            </div>
-                        </div>
-                        <div className={styles.tableRow}>
-                            <div className={styles.tableCol}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3>
-                            </div>
-                            <div className={`${styles.tableCol} ${styles.tableColSM}`}>
-                                <h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3>
-                            </div>
-                            <div className={styles.tableCol}>
-                            <h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3>
-                            </div>
-                        </div>
+            <div className="md:flex">
+                <div className={`${styles.table}`}>
+                    <div className="overflow-x-auto">
+                        <table className="border-separate border-spacing-4 ">
+                            <thead>
+                                <tr>
+                                    <th><h3 className={`${styles.tableHeading} ${JuraFont.className}`}>Property</h3></th>
+                                    <th><h3 className={`${styles.tableHeading} ${JuraFont.className}`}>Country</h3></th>
+                                    <th><h3 className={`${styles.tableHeading} ${JuraFont.className}`}>Type</h3></th>
+                                    <th><h3 className={`${styles.tableHeading} ${JuraFont.className}`}>Date</h3></th>
+                                    <th><h3 className={`${styles.tableHeading} ${JuraFont.className}`}></h3></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3></td>
+                                </tr>
+                                <tr>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Future Thinkers</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Canada</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Forest/Farm</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>Feb, 2022</h3></td>
+                                    <td><h3 className={`${styles.tableData} ${JuraFont.className}`}>10,000 tC02</h3></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 <div className={`${styles.wrapperCol} ${styles.mapCol}`}>

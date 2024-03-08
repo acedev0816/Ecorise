@@ -6,7 +6,7 @@ export default function SideBar({
     children: React.ReactNode
   }) {
     return (
-        <div className={styles.sidebar}>
+        <div className={`${styles.sidebar} hidden md:block`}>
             {children}
         </div>
     )

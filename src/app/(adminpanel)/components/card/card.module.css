@@ -1,5 +1,4 @@
 .card{
-    width: calc(100% / 3);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,6 +28,10 @@
 
 .cardTwo{
     width: calc(100% / 2);
+}
+
+.cardThree{
+    width: calc(100% / 3);
 }
 
 .cardBg{
