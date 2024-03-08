@@ -213,10 +213,13 @@ const LandingPage = function () {
 
             <PartnersSection>
                 <PartnersContainer>
+                    <Typography variant="h4" fontFamily="Jura" className="font-bold text-center mb-12" content="Strategic partners" />
+                </PartnersContainer>
+                <PartnersContainer>
                     <div className="flex items-center">
                         <Image
                             src={'/partners/OpenForestProtocol.png'}
-                            alt="Meta Mask"
+                            alt="OpenForestProtocol"
                             width={100}
                             height={100}
                             className="mx-6 "
@@ -230,7 +233,7 @@ const LandingPage = function () {
                     <div className="flex items-center">
                         <Image
                             src={'/partners/dClimate.png'}
-                            alt="Meta Mask"
+                            alt="dClimate"
                             width={100}
                             height={100}
                             className="mx-6 "
@@ -244,7 +247,7 @@ const LandingPage = function () {
                     <div className="flex items-center">
                         <Image
                             src={'/partners/solidworld.png'}
-                            alt="Meta Mask"
+                            alt="solidworld"
                             width={100}
                             height={100}
                             className="mx-6 "
@@ -258,7 +261,7 @@ const LandingPage = function () {
                     <div className="flex items-center">
                         <Image
                             src={'/partners/digitalgaia.png'}
-                            alt="Meta Mask"
+                            alt="digitalgaia"
                             width={100}
                             height={100}
                             className="mx-6 "
@@ -272,7 +275,7 @@ const LandingPage = function () {
                     <div className="flex items-center">
                         <Image
                             src={'/partners/Shamba.png'}
-                            alt="Meta Mask"
+                            alt="Shamba"
                             width={100}
                             height={100}
                             className="mx-6 "
@@ -286,7 +289,7 @@ const LandingPage = function () {
                     <div className="flex items-center">
                         <Image
                             src={'/partners/futurequestdao1.png'}
-                            alt="Meta Mask"
+                            alt="futurequestdao"
                             width={100}
                             height={100}
                             className="mx-6 "
@@ -301,6 +304,9 @@ const LandingPage = function () {
             </PartnersSection>
 
             <PartnersSection>
+                <PartnersContainer>
+                    <Typography variant="h4" fontFamily="Jura" className="font-bold text-center mb-12" content="Wallets" />
+                </PartnersContainer>
                 <PartnersContainer>
                     <Image
                         src={'/partners/meta-mask.png'}
@@ -331,13 +337,6 @@ const LandingPage = function () {
                         className="mx-6 dark:block hidden"
                     />
                     <Image
-                        src={'/partners/safe-pal.png'}
-                        alt="Meta Mask"
-                        width={210}
-                        height={60}
-                        className="mx-6 dark:block hidden"
-                    />
-                    <Image
                         src={'/partners/meta-mask-light.png'}
                         alt="Meta Mask"
                         width={285}
@@ -362,13 +361,6 @@ const LandingPage = function () {
                         src={'/partners/exodus-light.png'}
                         alt="Exodus"
                         width={285}
-                        height={60}
-                        className="mx-6 dark:hidden block"
-                    />
-                    <Image
-                        src={'/partners/safe-pal-light.png'}
-                        alt="Meta Mask"
-                        width={210}
                         height={60}
                         className="mx-6 dark:hidden block"
                     />
