@@ -151,7 +151,7 @@ export default function Page() {
         alert("Please choose image.")
       }
     },
-    [imgUrl, data]
+    [imgUrl, data, address]
   );
 
   return (
