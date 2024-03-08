@@ -219,7 +219,7 @@ const LandingPage = function () {
                             alt="Meta Mask"
                             width={100}
                             height={100}
-                            className="mx-6 dark:block hidden"
+                            className="mx-6 "
                         />
                         <Link
                             href={"https://www.openforestprotocol.org/"}
@@ -233,7 +233,7 @@ const LandingPage = function () {
                             alt="Meta Mask"
                             width={100}
                             height={100}
-                            className="mx-6 dark:block hidden"
+                            className="mx-6 "
                         />
                         <Link
                             href={"https://www.dclimate.net/"}
@@ -247,7 +247,7 @@ const LandingPage = function () {
                             alt="Meta Mask"
                             width={100}
                             height={100}
-                            className="mx-6 dark:block hidden"
+                            className="mx-6 "
                         />
                         <Link
                             href={"https://www.solid.world/"}
@@ -261,7 +261,7 @@ const LandingPage = function () {
                             alt="Meta Mask"
                             width={100}
                             height={100}
-                            className="mx-6 dark:block hidden"
+                            className="mx-6 "
                         />
                         <Link
                             href={"https://www.digitalgaia.earth/"}
@@ -275,7 +275,7 @@ const LandingPage = function () {
                             alt="Meta Mask"
                             width={100}
                             height={100}
-                            className="mx-6 dark:block hidden"
+                            className="mx-6 "
                         />
                         <Link
                             href={"https://shamba.network/"}
@@ -289,7 +289,7 @@ const LandingPage = function () {
                             alt="Meta Mask"
                             width={100}
                             height={100}
-                            className="mx-6 dark:block hidden"
+                            className="mx-6 "
                         />
                         <Link
                             href={"https://future.quest/"}
