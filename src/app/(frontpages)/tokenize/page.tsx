@@ -147,6 +147,8 @@ export default function Page() {
           actionIdRef.current = id;
           setTimeout(updateMintStatus, CHECK_INTERVAL);
         }
+      } else{
+        alert("Please choose image.")
       }
     },
     [imgUrl, data]
