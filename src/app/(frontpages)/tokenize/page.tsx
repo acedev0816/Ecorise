@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useCallback, useRef, useState } from "react";
+import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 import {
   HeroContainer,
   SubHeroSection,
@@ -25,6 +25,8 @@ export default function Page() {
     label: string;
     src: string;
   };
+
+  const [imgUrl, setImgUrl] = useState<string>("");
 
   const { address } = useAccount();
   const [minting, setMinting] = useState<boolean>(false);
@@ -67,18 +69,11 @@ export default function Page() {
   });
   const [showModal, setShowModal] = useState<boolean>(false);
   const [tokenURL, setTokenURL] = useState<string>("");
-  const handleDragEnter = (e: React.DragEvent<HTMLDivElement>) => {
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    e.stopPropagation();
     setDragging(true);
   };
-
-  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setDragging(false);
-  };
-
   const fileRef = useRef<HTMLInputElement>(null);
 
   const updateMintStatus = async () => {
@@ -97,42 +92,65 @@ export default function Page() {
       setMinting(false);
     } else if (counterRef.current < MAX_RETRY) {
       setTimeout(updateMintStatus, CHECK_INTERVAL);
-    } else{
+    } else {
       setMinting(false);
     }
   };
 
-  const onTokenize = async (event: FormEvent) => {
-    event.preventDefault();
-
-    if (!address) {
-      alert("Please connect wallet.");
-      return;
-    }
-    // console.log("data", data);
-    if (fileRef.current?.files) {
-      setMinting(true);
-      const formData = new FormData();
-      formData.append("recipient", address);
-      formData.append("image", fileRef.current.files[0]);
-      formData.append("title", data.title);
-      formData.append("category", data.category);
-      formData.append("tags", data.tags);
-      formData.append("description", data.description);
-      formData.append("duration", data.duration);
-
-      const res = await axios.post("/api/nft/mint", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-      const id = res?.data?.data?.actionId;
-      if (id) {
-        actionIdRef.current = id;
-        setTimeout(updateMintStatus, CHECK_INTERVAL);
-      }
-    }
+  const upload = async (file: any) => {
+    const formData = new FormData();
+    formData.append("image", file);
+    const res = await axios.post("/api/nft/upload", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    const path = res.data.data;
+    console.log("upload res", path);
+    setImgUrl(path);
   };
+
+  const handleImgSelect = () => {
+    if (fileRef.current?.files) upload(fileRef.current.files[0]);
+  };
+
+  const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    let file = null;
+    if (e.dataTransfer?.items && e.dataTransfer.items[0].kind == "file")
+      file = e.dataTransfer.items[0].getAsFile();
+    else if (e.dataTransfer.files) file = e.dataTransfer.files[0];
+    if (file) {
+      upload(file);
+    }
+    setDragging(false);
+  };
+
+  const onTokenize = useCallback(
+    async (event: FormEvent) => {
+      event.preventDefault();
+
+      if (!address) {
+        alert("Please connect wallet.");
+        return;
+      }
+      console.log("data", data);
+      if (imgUrl) {
+        setMinting(true);
+        const res = await axios.post("/api/nft/mint", {
+          ...data,
+          recipient: address,
+          img: imgUrl,
+        });
+        const id = res?.data?.data?.actionId;
+        if (id) {
+          actionIdRef.current = id;
+          setTimeout(updateMintStatus, CHECK_INTERVAL);
+        }
+      }
+    },
+    [imgUrl, data]
+  );
 
   return (
     <div className="w-full">
@@ -163,21 +181,21 @@ export default function Page() {
           </label>
           <div
             className={`mt-2 flex justify-center rounded-lg border border-dashed border-white-900/25 px-6 py-10 bg-contain bg-center bg-no-repeat`}
-            style={dragging ? {backgroundImage: "url('/uploadback.png')" } : {}}
-            onDragEnter={handleDragEnter}
-            onDragLeave={handleDragLeave}
-            onDragOver={handleDragEnter}
-            onDrop={handleDragLeave}
+            style={imgUrl ? { backgroundImage: `url(${imgUrl})` } : {}}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
           >
             <div className="text-center">
               <FolderIcon
-                className="mx-auto h-12 w-12 text-gray-300"
+                className={`mx-auto h-12 w-12 text-gray-300 ${
+                  imgUrl ? "text-transparent" : ""
+                }`}
                 aria-hidden="true"
               />
               <div className="mt-4 flex text-sm">
                 <p className="pl-1">drag & drop a file or </p>
                 <label htmlFor="file-upload" className="ml-3 relative ">
-                  <span className="dark:bg-primary bg-white flex flex-col text-1xl dark:text-white text-primary underline">
+                  <span className="dark:bg-transparent flex flex-col text-1xl dark:text-white text-primary underline">
                     browse
                   </span>
                   <input
@@ -186,6 +204,7 @@ export default function Page() {
                     type="file"
                     className="sr-only"
                     ref={fileRef}
+                    onChange={handleImgSelect}
                   />
                 </label>
               </div>
@@ -273,18 +292,6 @@ export default function Page() {
                 )
               }
             />
-            {/* to acer : Maybe you should modify my onChage function. I did not delete your code. please repair it. */}
-            {/* <select
-              name="category"
-              className={`${styles.input}`}
-              value={data.category}
-              onChange={(e)=>setData({...data, category: e.target.value})}
-            >
-              <option value="music">Music NFTs</option>
-              <option value="game">Gaming NFTs</option>
-              <option value="artwork">Artwork</option>
-              <option value="identity">Identity</option>
-            </select> */}
           </div>
           <label
             htmlFor="nft-tag"
@@ -440,7 +447,9 @@ export default function Page() {
           </div>
         </div>
       )}
-      {showModal && <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>}
+      {showModal && (
+        <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+      )}
     </div>
   );
 }
