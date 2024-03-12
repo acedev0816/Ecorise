@@ -33,13 +33,15 @@ const Footer = function() {
         flex items-center gap-8
         mt-10
     `;
-
+    const onEmailSignup = () => {
+        window.open("mailto:info@ecorise.finance");
+    }
     return <FooterWrapper>
         <FooterContainer >
             <FooterLogo >
                 <Image className="dark:block hidden" src={'/logo-dark.svg'} width={300} height={80} alt="EcoRise" />
                 <Image className="dark:hidden block " src={'/logo-light.svg'} width={300} height={80} alt="EcoRise" />
-                <Button className="self-start min-w-[224px] min-h-[60px] tracking-[5px]" variant="outlined" size="lg" rounded="xl" value="Email Signup" />
+                <Button onClick={onEmailSignup} className="self-start min-w-[224px] min-h-[60px] tracking-[5px]" variant="outlined" size="lg" rounded="xl" value="Email Signup" />
             </FooterLogo>
             <FooterLinks className="w-[15%]">
                 <Typography variant="h5" fontFamily="Michroma" content="Links" />
