@@ -159,7 +159,7 @@ const Header = () => {
                 href={"/about-us"}
                 className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl hover:font-medium dark:hover:text-textColor-100`}
               >
-                AboutUs
+                About Us
               </Link>
             </NavItem>
           </NavList>
@@ -215,7 +215,7 @@ const Header = () => {
               <menu className="text-2xl ">
                 <li className="pt-6">
                   <Link
-                    href={"/tokenize"}
+                    href={"/#"}
                     className={`${PoppinsFont.className} dark:text-white text-primary`}
                   >
                     Tokenize
@@ -226,7 +226,7 @@ const Header = () => {
                     href={"/"}
                     className={`${PoppinsFont.className} dark:text-white text-primary`}
                   >
-                    Launchpad
+                    AI Estimator
                   </Link>
                 </li>
                 <li className="pt-6">
@@ -250,7 +250,7 @@ const Header = () => {
                     href={"/about-us"}
                     className={`${PoppinsFont.className} dark:text-white text-primary`}
                   >
-                    AboutUs
+                    About Us
                   </Link>
                 </li>
               </menu>
