@@ -19,10 +19,6 @@ export default function DashboardPage() {
             content: '$ --- --- ---',
         },
         {
-            title: 'Backing Per $ECO',
-            content: '1 : 1',
-        },
-        {
             title: 'Market Cap',
             content: '$ --- --- ---',
         },
@@ -33,10 +29,6 @@ export default function DashboardPage() {
         {
             title: 'TVL',
             content: '$ --- --- ---',
-        },
-        {
-            title: 'RUNWAY',
-            content: null,
         },
         {
             title: 'Total Land Staked',
@@ -50,10 +42,6 @@ export default function DashboardPage() {
         {
             title: 'Treasury Balance',
             content: '$ --- --- ---',
-        },
-        {
-            title: 'Current Index',
-            content: '7.7 ECO',
         },
         {
             title: 'APY',

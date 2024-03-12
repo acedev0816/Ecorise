@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import SideBar from "./components/sidebar/sidebar";
 import ThemeToggler from "../(frontpages)/_pageComponents/ThemeToggler/ThemeToggler";
 import Link from "next/link";
+import WagmiProvider from "../../providers/wagmi-provider";
 
 
 export default function AdminPanelLayout({
@@ -28,21 +29,23 @@ export default function AdminPanelLayout({
   return (
     <>
       {isMounted && (
-        <div className="adminPanel">
-          <SideBar>
-            <Link href={"/"}>
-              <Logo />
-            </Link>
-            <NavMenu />
-          </SideBar>
-          <section className="p-5 md:p-14 w-full md:w-77 md:min-w-[calc(100%-310px)] bg-right-bottom bg-no-repeat bg-auto"
-            style={{ backgroundImage: "url('/dashboard-bg.png')" }}
-          >
-            <MobileNav />
-            {children}
-          </section>
-          <ThemeToggler themeChange={setTheme} />
-        </div>
+        <WagmiProvider>
+          <div className="adminPanel">
+            <SideBar>
+              <Link href={"/"}>
+                <Logo />
+              </Link>
+              <NavMenu />
+            </SideBar>
+            <section className="p-5 md:p-14 w-full md:w-77 md:min-w-[calc(100%-310px)] bg-right-bottom bg-no-repeat bg-auto"
+              style={{ backgroundImage: "url('/dashboard-bg.png')" }}
+            >
+              <MobileNav />
+              {children}
+            </section>
+            <ThemeToggler themeChange={setTheme} />
+          </div>
+        </WagmiProvider>
       )}
     </>
   )

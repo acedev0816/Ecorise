@@ -3,7 +3,7 @@
     height: var(--min-screen-height);
     padding: 2rem;
     background-color: var(--sidebar-color);
-    overflow: hidden;
+    overflow-y: auto;
     max-width: 310px;
     position: sticky;
     top: 0;

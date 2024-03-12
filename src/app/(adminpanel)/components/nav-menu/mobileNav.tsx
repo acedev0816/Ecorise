@@ -4,11 +4,39 @@ import styles from "./navMenu.module.css";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import { useAccount, useConnect, useDisconnect, useEnsName } from "wagmi";
+import { reduceHexAddress } from "@/util";
+import Button from "@/app/(frontpages)/_pageComponents/Button/Button";
 
 export default function MobileNav() {
     const currentPath = usePathname()
     const [nav, setNav] = useState(false);
     const mobile_menu_ref = useRef<HTMLDivElement>(null);
+
+    const [btnText, setBtnText] = useState("Buy ECO");
+    const { connectors, connect } = useConnect();
+    const { address } = useAccount();
+    const { disconnect } = useDisconnect();
+
+    const btnMouseLeave = (): void => {
+        setBtnText("Connect Wallet");
+    };
+
+    useEffect(() => {
+        if (address)
+            setBtnText(reduceHexAddress(address, 4))
+        else
+            setBtnText("Buy ECO");
+    }, [address]);
+
+    const onConnect = (): void => {
+        console.log(address);
+        if (address) {
+            disconnect();
+        } else {
+            connect({ connector: connectors[0] });
+        }
+    };
 
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
@@ -55,9 +83,9 @@ export default function MobileNav() {
                 <div
                     onClick={onClickNav}
                     ref={mobile_menu_ref}
-                    className="fixed inset-0 z-40 bg-white/50 backdrop-blur-md"
+                    className="fixed inset-0 z-40 bg-white/50 backdrop-blur-md overflow-y-auto"
                 >
-                    <div className="absolute h-full left-0 dark:bg-primary bg-white px-6 py-6 opacity-90 border-l dark:border-white border-black border-1">
+                    <div className="absolute h-auto left-0 dark:bg-primary bg-white px-6 py-6 opacity-90 border-l dark:border-white border-black border-1">
                         <Link href={"/"}>
                             <Image
                                 src={`/logo-dark.svg`}
@@ -74,7 +102,7 @@ export default function MobileNav() {
                                 className="dark:hidden block"
                             />
                         </Link>
-                        <menu className="text-xl ">
+                        <menu className="text-xl overflow-y-auto">
                             <li className="pt-6">
                                 <Link
                                     className={`${styles.navmenuLinkItem} ${currentPath === '/dashboard' ? styles.navmenuLinkItemActive : ''}`}
@@ -82,6 +110,22 @@ export default function MobileNav() {
                                 >
                                     Dashboard
                                 </Link>
+                                {address && (<>
+                                    <ul className={styles.navmenuDropdown}>
+                                        <li className={styles.navmenuDropdownItem}>
+                                            <p className={styles.navmenuDropdownHeading}>MY ACCOUNT</p>
+                                            <p className={styles.navmenuDropdownCol}>PFP NFT</p>
+                                        </li>
+                                    </ul>
+                                    <ul className={styles.navmenuDropdown}>
+                                        <li className={styles.navmenuDropdownItem}>
+                                            <p className={styles.navmenuDropdownHeading}>#WALLET ADDRESS</p>
+                                            <p className={styles.navmenuDropdownCol}>ECO . $11111</p>
+                                            <p className={styles.navmenuDropdownCol}>ASSETS . $1111</p>
+                                            <p className={styles.navmenuDropdownCol}>YIELD . $1111</p>
+                                        </li>
+                                    </ul>
+                                </>)}
                             </li>
                             <li className="pt-6">
                                 <Link
@@ -109,14 +153,14 @@ export default function MobileNav() {
                                 <ul>
                                     <li className={styles.navmenuDropdownItem}>
                                         <p className={styles.navmenuDropdownHeading}>Mint Discouts</p>
-                                        <p className={styles.navmenuDropdownCol}>
+                                        {/* <p className={styles.navmenuDropdownCol}>
                                             <span>Sol-Rise</span>
                                             <span>2.5%</span>
                                         </p>
                                         <p className={styles.navmenuDropdownCol}>
                                             <span>Sol-Mim</span>
                                             <span>3%</span>
-                                        </p>
+                                        </p> */}
                                     </li>
                                 </ul>
                             </li>
@@ -136,6 +180,14 @@ export default function MobileNav() {
                                     DAO Vault
                                 </Link>
                             </li>
+                            <Button
+                                className="mt-6 w-full"
+                                variant="gradient"
+                                fontFamily="Poppins"
+                                rounded="xl3"
+                                value={btnText}
+                                onClick={onConnect}
+                            />
                         </menu>
                     </div>
                 </div>
