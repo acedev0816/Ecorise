@@ -12,14 +12,23 @@ export default function Logo() {
 
   return (
     <div className={styles.logo}>
-      {colorTheme && (
+      {colorTheme && (<>
         <Image
-          src={`/logo-${colorTheme}.svg`}
+          src={`/logo-dark.svg`}
           alt="EcoRise"
           width={210}
           height={70}
+          className="dark:block hidden"
         />
-      )}
+        <Image
+          src={`/logo-light.svg`}
+          alt="EcoRise"
+          width={210}
+          height={70}
+          className="dark:hidden block"
+        />
+
+      </>)}
     </div>
   );
 }
