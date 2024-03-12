@@ -79,9 +79,9 @@ export default function NavMenu() {
                             </li>
                         </ul>
                     </li>
-                    <li className={styles.navmenuListItem}>
+                    {/* <li className={styles.navmenuListItem}>
                         <Link className={`${styles.navmenuLinkItem} ${currentPath === '/bridge' ? styles.navmenuLinkItemActive : ''}`} href='/bridge'>Bridge</Link>
-                    </li>
+                    </li> */}
                     <li className={styles.navmenuListItem}>
                         <Link className={`${styles.navmenuLinkItem} ${currentPath === '/dao-vault' ? styles.navmenuLinkItemActive : ''}`} href='/dao-vault'>DAO Vault</Link>
                     </li>

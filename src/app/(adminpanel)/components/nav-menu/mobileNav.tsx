@@ -164,14 +164,14 @@ export default function MobileNav() {
                                     </li>
                                 </ul>
                             </li>
-                            <li className="pt-6">
+                            {/* <li className="pt-6">
                                 <Link
                                     className={`${styles.navmenuLinkItem} ${currentPath === '/bridge' ? styles.navmenuLinkItemActive : ''}`}
                                     href='/bridge'
                                 >
                                     Bridge
                                 </Link>
-                            </li>
+                            </li> */}
                             <li className="pt-6">
                                 <Link
                                     className={`${styles.navmenuLinkItem} ${currentPath === '/dao-vault' ? styles.navmenuLinkItemActive : ''}`}
