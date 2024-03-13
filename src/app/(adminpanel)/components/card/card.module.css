@@ -10,7 +10,7 @@
     background: var(--gradient-bg-2) padding-box,
     var(--gradient-bg-3) border-box;
     border-radius: 16px;
-    max-width: 392px;
+    /* max-width: 392px; */
     border: 4px solid transparent;    
 }
 
@@ -21,7 +21,7 @@
 
 .cardFull{
     width: 100%;
-    max-width: 100%;
+    /* max-width: 100%; */
     min-height: 222px;
     padding: 3rem 1.5rem;
 }
@@ -32,6 +32,10 @@
 
 .cardThree{
     width: calc(100% / 3);
+}
+
+.cardFour{
+    width: calc(100% / 4);
 }
 
 .cardBg{

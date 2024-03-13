@@ -13,44 +13,29 @@ export default function DashboardPage() {
         contentFont?: 'jura'|'michroma';
     }
 
+    const dashboardHeads: DashboardStats[] = [
+        {
+            title: 'TREASURY BALANCE',
+            content: '$ ___ ___ ___',
+        },
+    ];
+
     const dashboardStats: DashboardStats[] = [
         {
-            title: 'ECO price',
-            content: '$ --- --- ---',
+            title: 'ECO PRICE',
+            content: '$ ___ ___ ___',
         },
         {
-            title: 'Market Cap',
-            content: '$ --- --- ---',
+            title: 'ECO MARkET CAP',
+            content: '$ ___ ___ ___',
         },
         {
-            title: 'PES',
-            content: '$ --- --- ---',
+            title: 'ECO TVL',
+            content: '$ ___ ___ ___',
         },
         {
-            title: 'TVL',
-            content: '$ --- --- ---',
-        },
-        {
-            title: 'Total Land Staked',
-            content: '--- HECTARES',
-            contentSize: 'xs',
-        },
-        {
-            title: 'Total Land Value Staked',
-            content: '$ --- --- ---',
-        },
-        {
-            title: 'Treasury Balance',
-            content: '$ --- --- ---',
-        },
-        {
-            title: 'APY',
-            content: '%',
-            contentFont: 'jura',
-        },
-        {
-            title: 'Protocol Owned Liquidity',
-            content: null,
+            title: 'AUM',
+            content: '$ ___ ___ ___',
         }
     ];
 
@@ -62,12 +47,23 @@ export default function DashboardPage() {
 
     return (
         <>
-            <div className={"flex flex-col md:flex-row md:flex-wrap justify-between md:gap-x-10 gap-y-3 md:gap-y-12"}>
+            <div className={"mb-12"}>
+                {dashboardHeads && dashboardHeads.map((stat, index) => <Card
+                    title={stat.title}
+                    content={stat.content}
+                    contentSize={stat.contentSize ? stat.contentSize : 'lg'}
+                    contentFont={stat.contentFont ? stat.contentFont : 'michroma'}
+                    cardSize={'one'}
+                    key={index}
+                />)}
+            </div>
+            <div className={"flex flex-col md:flex-row justify-between md:gap-x-5 gap-y-3 md:gap-y-12"}>
                 {dashboardStats && dashboardStats.map((stat, index) => <Card
                     title={stat.title}
                     content={stat.content}
                     contentSize={stat.contentSize ? stat.contentSize : 'lg'}
                     contentFont={stat.contentFont ? stat.contentFont : 'michroma'}
+                    cardSize={'four'}
                     key={index}
                 />)}
             </div>

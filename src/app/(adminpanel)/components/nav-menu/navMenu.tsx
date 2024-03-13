@@ -38,7 +38,7 @@ export default function NavMenu() {
         <div className="">
             <nav className={`${styles.navmenu}`}>
                 <ul className={`${styles.navmenuList}`}>
-                    <li className={styles.navmenuListItem}>
+                    <li className={`${styles.navmenuListItem} mt-10`}>
                         <Link className={`${styles.navmenuLinkItem} ${currentPath === '/dashboard' ? styles.navmenuLinkItemActive : ''}`} href='/dashboard'>Dashboard</Link>
                         {address && (<>
                             <ul className={styles.navmenuDropdown}>
@@ -57,14 +57,7 @@ export default function NavMenu() {
                             </ul>
                         </>)}
                     </li>
-                    <li className={styles.navmenuListItem}>
-                        <Link className={`${styles.navmenuLinkItem} ${currentPath === '/stack-eco' ? styles.navmenuLinkItemActive : ''}`} href='/stack-eco'>Stack ECO</Link>
-                    </li>
-                    <li className={styles.navmenuListItem}>
-                        <Link className={`${styles.navmenuLinkItem} ${currentPath === '/stack-land' ? styles.navmenuLinkItemActive : ''}`} href='/stack-land'>Stack Land</Link>
-                    </li>
-                    <li className={styles.navmenuListItem}>
-                        <Link className={`${styles.navmenuLinkItem} ${currentPath === '/mint' ? styles.navmenuLinkItemActive : ''}`} href='/mint'>Mint</Link>
+                    <li>
                         <ul className={styles.navmenuDropdown}>
                             <li className={styles.navmenuDropdownItem}>
                                 <p className={styles.navmenuDropdownHeading}>Mint Discouts</p>
@@ -78,12 +71,6 @@ export default function NavMenu() {
                                 </p> */}
                             </li>
                         </ul>
-                    </li>
-                    {/* <li className={styles.navmenuListItem}>
-                        <Link className={`${styles.navmenuLinkItem} ${currentPath === '/bridge' ? styles.navmenuLinkItemActive : ''}`} href='/bridge'>Bridge</Link>
-                    </li> */}
-                    <li className={styles.navmenuListItem}>
-                        <Link className={`${styles.navmenuLinkItem} ${currentPath === '/dao-vault' ? styles.navmenuLinkItemActive : ''}`} href='/dao-vault'>DAO Vault</Link>
                     </li>
                     <Button
                         className="mt-8 w-full"

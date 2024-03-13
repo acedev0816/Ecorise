@@ -27,7 +27,6 @@ export default function Logo() {
           height={70}
           className="dark:hidden block"
         />
-
       </>)}
     </div>
   );
