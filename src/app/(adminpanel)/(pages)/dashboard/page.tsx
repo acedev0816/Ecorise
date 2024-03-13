@@ -53,7 +53,6 @@ export default function DashboardPage() {
                     content={stat.content}
                     contentSize={stat.contentSize ? stat.contentSize : 'lg'}
                     contentFont={stat.contentFont ? stat.contentFont : 'michroma'}
-                    cardSize={'one'}
                     key={index}
                 />)}
             </div>
@@ -63,7 +62,6 @@ export default function DashboardPage() {
                     content={stat.content}
                     contentSize={stat.contentSize ? stat.contentSize : 'lg'}
                     contentFont={stat.contentFont ? stat.contentFont : 'michroma'}
-                    cardSize={'four'}
                     key={index}
                 />)}
             </div>
