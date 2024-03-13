@@ -44,7 +44,7 @@ export default function NavMenu() {
                             <ul className={styles.navmenuDropdown}>
                                 <li className={styles.navmenuDropdownItem}>
                                     <p className={styles.navmenuDropdownHeading}>MY ACCOUNT</p>
-                                    <p className={styles.navmenuDropdownCol}>PFP NFT</p>
+                                    {/* <p className={styles.navmenuDropdownCol}>PFP NFT</p> */}
                                 </li>
                             </ul>
                             <ul className={styles.navmenuDropdown}>
@@ -57,21 +57,7 @@ export default function NavMenu() {
                             </ul>
                         </>)}
                     </li>
-                    <li>
-                        <ul className={styles.navmenuDropdown}>
-                            <li className={styles.navmenuDropdownItem}>
-                                <p className={styles.navmenuDropdownHeading}>Mint Discouts</p>
-                                {/* <p className={styles.navmenuDropdownCol}>
-                                    <span>Sol-Rise</span>
-                                    <span>2.5%</span>
-                                </p>
-                                <p className={styles.navmenuDropdownCol}>
-                                    <span>Sol-Mim</span>
-                                    <span>3%</span>
-                                </p> */}
-                            </li>
-                        </ul>
-                    </li>
+                    
                     <Button
                         className="mt-8 w-full"
                         variant="gradient"

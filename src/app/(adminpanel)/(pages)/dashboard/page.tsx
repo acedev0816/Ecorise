@@ -26,7 +26,7 @@ export default function DashboardPage() {
             content: '$ ___ ___ ___',
         },
         {
-            title: 'ECO MARkET CAP',
+            title: 'ECO MARKET CAP',
             content: '$ ___ ___ ___',
         },
         {
