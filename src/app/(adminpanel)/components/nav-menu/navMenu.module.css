@@ -57,3 +57,13 @@
 .navmenuDropdownCol:last-of-type{
     margin-bottom: 0;
 }
+
+.navmenuDropdownContentTitle{
+    font-size: 10px;
+    width: 40px;
+    text-align: left;
+}
+.navmenuDropdownContentValue{
+    font-size: 10px;
+    width:40px;
+}

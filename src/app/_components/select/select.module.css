@@ -1,0 +1,43 @@
+.select {
+  padding: 12px 15px !important;
+  border: 1px solid var(--text-color) !important;
+  border-radius: 12px !important;
+  color: var(--text-color) !important;
+  background: var(--bg-filled-color) !important;
+  font-size: 18px !important;
+  width: 100% !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+
+.selectItem {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background: var(--bg-filled-color);
+  gap: 8px;
+}
+
+.selectItem:hover {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background: rgb(55,95,204) !important;
+}
+
+.selectContent {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  background: var(--bg-filled-color);
+}
+
+.selectLogo {
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
+.selectText {
+  font-size: 18px;
+  color: var(--text-color);
+}

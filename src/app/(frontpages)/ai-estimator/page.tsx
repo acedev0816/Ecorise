@@ -1,6 +1,13 @@
 "use client";
 
-import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
+import {
+  FormEvent,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   HeroContainer,
   SubHeroSection,
@@ -9,9 +16,9 @@ import {
 } from "../_pageComponents/StyleComponents/StyleComponents";
 import Typography from "../_pageComponents/Typography/Typography";
 import Button from "../_pageComponents/Button/Button";
-import { FolderIcon } from "@heroicons/react/24/solid";
+import { WifiIcon } from "@heroicons/react/24/solid";
 import styles from "../front.module.css";
-import axios from "../../../util/axios";
+import axios from "@/util/axios";
 import Select from "@/app/_components/select";
 import Image from "next/image";
 import { useAccount } from "wagmi";
@@ -20,6 +27,12 @@ const MAX_RETRY = 8;
 const CHECK_INTERVAL = 4000;
 
 export default function Page() {
+  type ChainNetOptionStruct = {
+    value: string;
+    label: string;
+    src: string;
+  };
+
   const [imgUrl, setImgUrl] = useState<string>("");
 
   const { address } = useAccount();
@@ -28,21 +41,55 @@ export default function Page() {
   const actionIdRef = useRef<string>("");
   const counterRef = useRef<number>(0);
 
-  const netOptionArray = [
-    { value: "polygon", label: "Polygon", src: "/polygon.png" },
-    { value: "ethereum", label: "Ethereum", src: "/eth.svg" },
-    { value: "solana", label: "Solana", src: "/solana.png" },
+  const netOptionArray: ChainNetOptionStruct[] = [
+    { value: "polygon ", label: "polygon ", src: "/check-mark.svg" },
+    { value: "ethereum", label: "ethereum", src: "/eth.svg" },
+    { value: "solana", label: "solana", src: "/solana.png" },
   ];
 
-  const categoryArray = [
-    { value: "real_asset", label: "Real World Assets" },
-    { value: "regen_finance", label: "Regenerative Finance" },
-    { value: "climate", label: "Climate Data" },
+  const [category, setCategory] = useState<string[]>(["grassland"]);
+  const CATEGORIES: any[] = [
+    { value: "grassland", label: "Grassland" },
+    { value: "forest", label: "Forest" },
+    { value: "jungle", label: "Jungle" },
+    { value: "desert", label: "Desert" },
+    { value: "coastal", label: "Coastal" },
+    { value: "bush", label: "Bush" },
+    { value: "urban", label: "Urban" },
+  ];
+
+  const SERVICES: any[] = [
+    { value: "carbon_sequestration", label: "Carbon Sequestration" },
+    { value: "healthy_sqil", label: "Healthy Sqil" },
+    { value: "healthy_forest", label: "Healthy Forest" },
+    { value: "clean_water", label: "Clean Water" },
+    { value: "bio_diversity", label: "Biodiversity" },
+    { value: "flood_mitigation", label: "Flood Mitigation" },
+    { value: "erosion_control", label: "Erosion Control" },
+  ];
+  const [services, setServices] = useState<any[]>(["carbon_sequestration"]);
+
+  const [business, setBusiness] = useState<string[]>(["agriculture"]);
+  const BUSINESSES: any[] = [
+    { value: "agriculture", label: "Agriculture" },
+    { value: "forestry", label: "Forestry" },
+    { value: "rehabilitation", label: "Rehabilitation" },
+    { value: "restoration", label: "Restoration" },
+    { value: "conservation", label: "Conservation" },
+    { value: "regeneration", label: "Regeneration" },
     { value: "other", label: "Other" },
   ];
 
-  const [category, setCategory] = useState<any[]>(["real_asset"]);
-  const [netSelected, setNetSelected] = useState<any[]>(["polygon"]);
+  const [asset, setAsset] = useState<string[]>(["real_estate"]);
+  const ASSETS: any[] = [
+    { value: "real_estate", label: "Real Estate" },
+    { value: "trees", label: "Trees" },
+    { value: "hardware", label: "Hardware" },
+    { value: "data", label: "Data" },
+    { value: "rights_to_yield", label: "Rights to yield" },
+    { value: "vehicles", label: "Vehicles" },
+    { value: "other", label: "Other" },
+  ];
 
   const [dragging, setDragging] = useState(false);
   const [data, setData] = useState<any>({
@@ -140,6 +187,28 @@ export default function Page() {
     [imgUrl, data, address]
   );
 
+  const getSelectedLabel = (value: string, options: any[]) => {
+    for (const option of options) {
+      if (option.value === value) return option.label;
+    }
+    return "";
+  };
+
+  const getSelectedLabels = (values: string[], options: any[]) => {
+    const selOptions = options.filter(
+      (v: any) => values.indexOf(v.value) !== -1
+    );
+    const selLabels = selOptions.map((v: any) => v.label);
+    const ret = selLabels.join(", ");
+    console.log(
+      "getSelectedLabels: values, options, ret",
+      values,
+      options,
+      ret
+    );
+    return ret;
+  };
+
   return (
     <div className="w-full">
       <SubHeroSection>
@@ -149,42 +218,128 @@ export default function Page() {
             fontFamily="Jura"
             variant="h2"
             gradient="no"
-            content="Tokenize"
+            content="Ai Regenerative Value Estimator"
           />
         </HeroContainer>
       </SubHeroSection>
       <form className="px-5" onSubmit={onTokenize}>
-        <p className="mt-10 dark:bg-primary bg-white flex flex-col gap-20 text-5xl leading-relaxed dark:text-white text-primary font-bold text-center">
-          Upload NFT
-        </p>
         <p className="mt-5 dark:bg-primary bg-white flex flex-col gap-20 text-2xl leading-relaxed dark:text-white text-primary text-center">
-          Please provide necessary information for tokenizing your data.
+          Please provide necessary information for AI estimate
         </p>
         <div className="mt-10 container mx-auto max-w-4xl space-y-6">
+          <label
+            htmlFor="nft-title"
+            className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
+          >
+            Project Name
+          </label>
+          <div className="mt-2">
+            <input
+              type="text"
+              name="nft-title"
+              id="nft-title"
+              autoComplete="nft-title"
+              className={`${styles.input}`}
+              placeholder="e.g. “Digital Artwork”"
+              value={data.title}
+              onChange={(e) => setData({ ...data, title: e.target.value })}
+            />
+          </div>
+          <label
+            htmlFor="nft-title"
+            className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
+          >
+            Project Size
+          </label>
+          <div className="mt-2">
+            <input
+              type="text"
+              name="nft-title"
+              id="nft-title"
+              autoComplete="nft-title"
+              className={`${styles.input}`}
+              placeholder="Size in Hectares, Acres"
+              value={data.title}
+              onChange={(e) => setData({ ...data, title: e.target.value })}
+            />
+          </div>
+
+          <label
+            htmlFor="nft-title"
+            className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
+          >
+            Locaiton
+          </label>
+          <div className="mt-2">
+            <input
+              type="text"
+              name="nft-title"
+              id="nft-title"
+              autoComplete="nft-title"
+              className={`${styles.input}`}
+              placeholder="e.g. ”MENDOCINO, CALIFORNIA, USA”"
+              value={data.title}
+              onChange={(e) => setData({ ...data, title: e.target.value })}
+            />
+          </div>
+          <label
+            htmlFor="category"
+            className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
+          >
+            Ecosystem
+          </label>
+          <div className="mt-2">
+            <Select
+              name="category"
+              options={CATEGORIES}
+              values={category}
+              onChange={(values) => {
+                setCategory(values);
+              }}
+            />
+          </div>
+          <label
+            htmlFor="category"
+            className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
+          >
+            Ecosystem Services
+          </label>
+          <div className="mt-2">
+            <Select
+              options={SERVICES}
+              multi
+              values={services}
+              onChange={(values) => {
+                setServices(values);
+              }}
+            />
+          </div>
           <label
             htmlFor="cover-photo"
             className="mx-auto dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
           >
-            Please upload your file(Image, Video, Audio).
+            Property boundary
           </label>
           <div
             className={`mt-2 flex justify-center rounded-lg border border-dashed border-white-900/25 px-6 py-10 bg-contain bg-center bg-no-repeat`}
-            style={imgUrl ? { backgroundImage: `url(${imgUrl})` } : {}}
             onDragOver={handleDragOver}
             onDrop={handleDrop}
           >
             <div className="text-center">
-              <FolderIcon
+              <WifiIcon
                 className={`mx-auto h-12 w-12 text-gray-300 ${
                   imgUrl ? "text-transparent" : ""
                 }`}
                 aria-hidden="true"
               />
               <div className="mt-4 flex text-sm">
-                <p className="pl-1">drag & drop a file or </p>
-                <label htmlFor="file-upload" className="ml-3 relative ">
+                <p className="">
+                  Draw a KML file of the property bounds on Google Earth, save
+                  and upload{" "}
+                </p>
+                <label htmlFor="file-upload" className="ml-2 relative ">
                   <span className="dark:bg-transparent flex flex-col text-1xl dark:text-white text-primary underline">
-                    browse
+                    here
                   </span>
                   <input
                     id="file-upload"
@@ -197,70 +352,31 @@ export default function Page() {
                 </label>
               </div>
               <p className="text-xs leading-5 text-gray-600">
-                File types supported: JPG, PNG, GIF, SVG, MP4, WEBM, MP3, WAV,
-                OGG. Max size: 100 MB
+                File types supported: GeoJson. Max size: 10 MB
               </p>
             </div>
-          </div>
-          <label
-            htmlFor="nft-title"
-            className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
-          >
-            What is the title of your NFT?
-          </label>
-          <div className="mt-2">
-            <input
-              type="text"
-              name="nft-title"
-              id="nft-title"
-              autoComplete="nft-title"
-              className={`${styles.input}`}
-              placeholder="e.g. “Digital Artwork Title”"
-              value={data.title}
-              onChange={(e) => setData({ ...data, title: e.target.value })}
-            />
-          </div>
-          <label
-            htmlFor="nft-description"
-            className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
-          >
-            Provide a brief description of your NFT
-          </label>
-          <div className="mt-2">
-            <textarea
-              rows={3}
-              name="nft-description"
-              id="nft-description"
-              autoComplete="nft-description"
-              className={`${styles.input}`}
-              placeholder="e.g. “This Artwork represents the journey of self-discovery.”"
-              value={data.description}
-              onChange={(e) =>
-                setData({ ...data, description: e.target.value })
-              }
-            />
           </div>
           <label
             htmlFor="category"
             className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
           >
-            What is the category of your NFT?
+            Business
           </label>
           <div className="mt-2">
             <Select
-              options={categoryArray}
-              name="category"
-              values={category}
-              onChange={([col]) => {
-                setCategory([col]);
+              options={BUSINESSES}
+              values={business}
+              onChange={(values) => {
+                setBusiness(values);
               }}
             />
           </div>
+
           <label
             htmlFor="nft-tag"
             className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
           >
-            Add tags to your NFT (Seprated by Commas).
+            Revenue
           </label>
           <div className="mt-2">
             <input
@@ -269,47 +385,33 @@ export default function Page() {
               id="nft-tag"
               autoComplete="nft-tag"
               className={`${styles.input}`}
-              placeholder="e.g. “Abstract, Contemporary, Digital Art”"
+              placeholder="$ in revenue per year"
               onChange={(e) => setData({ ...data, tags: e.target.value })}
               value={data.tags}
             />
           </div>
+
           <label
-            htmlFor="tokenize-duration"
+            htmlFor="category"
             className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
           >
-            Specify the duration of the tokenized data.
-          </label>
-          <div className="mt-2">
-            <input
-              type="text"
-              name="tokenize-duration"
-              id="tokenize-duration"
-              autoComplete="tokenize-duration"
-              className={`${styles.input}`}
-              placeholder="e.g. “30 Days”"
-              value={data.duration}
-              onChange={(e) => setData({ ...data, duration: e.target.value })}
-            />
-          </div>
-          <label
-            htmlFor="nft-platform"
-            className="dark:bg-primary bg-white flex flex-col gap-20 text-1xl leading-relaxed dark:text-white text-primary"
-          >
-            Select the blockchain platform to mint your NFT.
+            Assets to tokenize
           </label>
           <div className="mt-2">
             <Select
-              name="nft-platform"
-              options={netOptionArray}
-              // disabled={true}
-              values={netSelected}
+              options={ASSETS}
+              values={asset}
               onChange={(values) => {
-                setNetSelected(values);
+                setAsset(values);
               }}
             />
           </div>
-          
+          <div className={`${styles.result}`}>
+            <h6 className="text-center text-1xl">
+              Regenerative value estimate
+            </h6>
+            <h6 className="text-center text-1xl">$ --- </h6>
+          </div>
           <Button
             className="mt-2 w-[13rem]"
             variant="gradient"
@@ -321,52 +423,6 @@ export default function Page() {
           />
         </div>
       </form>
-      {showModal && (
-        <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
-          <div className="relative w-auto my-6 mx-auto max-w-3xl">
-            {/*content*/}
-            <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white dark:bg-sky-800 outline-none focus:outline-none">
-              {/*header*/}
-              <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
-                <h3 className="text-3xl font-semibold">Ecorise</h3>
-                <button
-                  className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
-                  onClick={() => setShowModal(false)}
-                >
-                  <span className="bg-transparent text-white h-6 w-6 text-2xl block outline-none focus:outline-none">
-                    ×
-                  </span>
-                </button>
-              </div>
-              {/*body*/}
-              <div className="relative p-6 flex-auto">
-                <p className="my-2 text-blueGray-500 text-lg leading-relaxed">
-                  Successfully minted an &nbsp;
-                  <a
-                    href={tokenURL}
-                    className="font-medium text-blue-600 dark:text-sky-300 hover:underline"
-                  >
-                    NFT
-                  </a>
-                </p>
-              </div>
-              {/*footer*/}
-              <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
-                <button
-                  className="text-red-500 background-transparent hover:bg-slate-200 dark:hover:bg-sky-900 font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                  type="button"
-                  onClick={() => setShowModal(false)}
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      {showModal && (
-        <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
-      )}
     </div>
   );
 }
