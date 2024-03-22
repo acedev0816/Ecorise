@@ -100,51 +100,17 @@ export default function Page() {
     duration: "",
     platform: "polygon",
   });
-  const [showModal, setShowModal] = useState<boolean>(false);
-  const [tokenURL, setTokenURL] = useState<string>("");
-
   const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     setDragging(true);
   };
   const fileRef = useRef<HTMLInputElement>(null);
 
-  const updateMintStatus = async () => {
-    console.log("updateMintStatus: start");
-    const res = await axios.get(`/api/nft/status?id=${actionIdRef.current}`);
-    console.log("updateMintStatus", res);
-    counterRef.current += 1;
-
-    // check if success
-    const status = res?.data?.data?.onChain?.status;
-    if (status === "success") {
-      const { contractAddress, tokenId } = res?.data?.data?.onChain;
-      const url = `https://mumbai.polygonscan.com/token/${contractAddress}?a=${tokenId}`;
-      setTokenURL(url);
-      setShowModal(true);
-      setMinting(false);
-    } else if (counterRef.current < MAX_RETRY) {
-      setTimeout(updateMintStatus, CHECK_INTERVAL);
-    } else {
-      setMinting(false);
-    }
-  };
-
-  const upload = async (file: any) => {
-    const formData = new FormData();
-    formData.append("image", file);
-    const res = await axios.post("/api/nft/upload", formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
-    const path = res.data.data;
-    console.log("upload res", path);
-    setImgUrl(path);
-  };
-
   const handleImgSelect = () => {
-    if (fileRef.current?.files) upload(fileRef.current.files[0]);
+    if (fileRef.current?.files) 
+    {
+      // upload(fileRef.current.files[0]);
+    }
   };
 
   const handleDrop = async (e: React.DragEvent<HTMLDivElement>) => {
@@ -154,38 +120,9 @@ export default function Page() {
       file = e.dataTransfer.items[0].getAsFile();
     else if (e.dataTransfer.files) file = e.dataTransfer.files[0];
     if (file) {
-      upload(file);
     }
     setDragging(false);
   };
-
-  const onTokenize = useCallback(
-    async (event: FormEvent) => {
-      event.preventDefault();
-
-      if (!address) {
-        alert("Please connect wallet.");
-        return;
-      }
-      console.log("data", data);
-      if (imgUrl) {
-        setMinting(true);
-        const res = await axios.post("/api/nft/mint", {
-          ...data,
-          recipient: address,
-          img: imgUrl,
-        });
-        const id = res?.data?.data?.actionId;
-        if (id) {
-          actionIdRef.current = id;
-          setTimeout(updateMintStatus, CHECK_INTERVAL);
-        }
-      } else {
-        alert("Please choose image.");
-      }
-    },
-    [imgUrl, data, address]
-  );
 
   const getSelectedLabel = (value: string, options: any[]) => {
     for (const option of options) {
@@ -222,7 +159,7 @@ export default function Page() {
           />
         </HeroContainer>
       </SubHeroSection>
-      <form className="px-5" onSubmit={onTokenize}>
+      <form className="px-5">
         <p className="mt-5 dark:bg-primary bg-white flex flex-col gap-20 text-2xl leading-relaxed dark:text-white text-primary text-center">
           Please provide necessary information for AI estimate
         </p>
@@ -412,7 +349,7 @@ export default function Page() {
             </h6>
             <h6 className="text-center text-1xl">$ --- </h6>
           </div>
-          <Button
+          {/* <Button
             className="mt-2 w-[13rem]"
             variant="gradient"
             size="lg"
@@ -420,7 +357,7 @@ export default function Page() {
             rounded="xl3"
             value="Tokenize"
             loading={minting}
-          />
+          /> */}
         </div>
       </form>
     </div>
