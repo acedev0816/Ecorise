@@ -102,7 +102,7 @@ const AboutUs = function () {
             <TeamProfile
               title="Aaron Levi Yahalom"
               subTitle=""
-              bio="GR, Clean air policies EU lobbist, RWA tokenization expert, Sustainable Smart-cities advocate."
+              bio="GR, Clean air policies EU lobbyst, RWA tokenization expert, Sustainable Smart-cities advocate."
               image="aaron.png"
             />
           </TeamRow>
