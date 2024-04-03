@@ -39,7 +39,9 @@ const LandingPage = function () {
                 <ButtonWrapper className="flex-col md:flex-row">
                     <Button variant="outlined" size="sm" rounded="xl" fontFamily="Michroma" value="VIEW PROJECTS" />
                     <Button variant="outlined" size="sm" rounded="xl" fontFamily="Michroma" value="HOW IT WORKS" />
-                    <Button variant="outlined" size="sm" rounded="xl" fontFamily="Michroma" value="VIEW OUR BLOGS" />
+                    <Button variant="outlined" size="sm" rounded="xl" fontFamily="Michroma" value="VIEW OUR BLOGS" 
+                    onClick={()=> window.open("https://medium.com/@corneile.uys")}
+                    />
                 </ButtonWrapper>
             </AboutSection>
 
