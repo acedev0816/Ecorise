@@ -11,6 +11,9 @@ import { useEffect, useState } from "react";
 import ThemeToggler from "./_pageComponents/ThemeToggler/ThemeToggler";
 import WagmiProvider from "../../providers/wagmi-provider";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const Wrapper = tw.div``;
 
 const LandingPageLayout = function ({
@@ -37,6 +40,7 @@ const LandingPageLayout = function ({
             <Header />
             {children}
             <Footer />
+            <ToastContainer />
           </Wrapper>
         </WagmiProvider>
       )}

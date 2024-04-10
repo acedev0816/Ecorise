@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
 import { Michroma, Jura, Poppins } from "next/font/google";
 import { useAccount, useConnect, useDisconnect, useEnsName } from "wagmi";
 import { reduceHexAddress } from "@/util";
+import axios from "axios";
 
 const PoppinsFont = Poppins({
   subsets: ["latin"],
@@ -47,12 +48,10 @@ const Header = () => {
   const btnMouseLeave = (): void => {
     setBtnText("Connect Wallet");
   };
-  
-  useEffect(()=> {
-    if (address)
-        setBtnText(reduceHexAddress(address, 4))
-    else 
-        setBtnText("Buy ECO");
+
+  useEffect(() => {
+    if (address) setBtnText(reduceHexAddress(address, 4));
+    else setBtnText("Buy ECO");
   }, [address]);
 
   useEffect(() => {
@@ -74,15 +73,15 @@ const Header = () => {
   const onConnect = (): void => {
     console.log(address);
     if (address) {
-        disconnect();
+      disconnect();
     } else {
-        connect({ connector: connectors[0] });
+      connect({ connector: connectors[0] });
     }
   };
-
   const onClickNav = () => {
     setNav(!nav);
-  }
+  };
+
   return (
     <HeaderRoot>
       <div className="flex container mx-auto max-w-8xl justify-between">
@@ -113,9 +112,14 @@ const Header = () => {
               </Link>
               <div className="absolute top-0 flex flex-col items-center hidden mt-6 group-hover:flex">
                 <div className="w-3 h-3 -mb-2 rotate-45 bg-white hidden md:block"></div>
-                <span className="relative w-[120px] z-10 p-2 text-m leading-none text-black whitespace-no-wrap bg-white shadow-lg hidden md:block">
-                  Apply for access
-                </span>
+                <div className="relative w-[140px] z-10 p-2 text-m leading-none text-black whitespace-no-wrap bg-white shadow-lg hidden md:block">
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSeW-1vmt1r6U8ki7liiLCVnWQc4Aju5DIPMBsSz-sgBZb_Z4A/viewform"
+                    className="font-medium text-gray-600 dark:text-gray-500 hover:underline"
+                  >
+                    Apply for access
+                  </a>
+                </div>
               </div>
             </NavItem>
             <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
@@ -148,11 +152,17 @@ const Header = () => {
             </NavItem>
             <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
               <Link
-                href={"/dashboard"}
+                href={"#"}
                 className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl hover:font-medium dark:hover:text-textColor-100`}
               >
                 Dashboard
               </Link>
+              <div className="absolute top-0 flex flex-col items-center hidden mt-6 group-hover:flex">
+                <div className="w-3 h-3 -mb-2 rotate-45 bg-white hidden md:block"></div>
+                <span className="relative w-[120px] z-10 p-2 text-m leading-none text-black whitespace-no-wrap bg-white shadow-lg hidden md:block">
+                  Coming soon
+                </span>
+              </div>
             </NavItem>
             <NavItem className="hidden 2xl:block">
               <Link
@@ -164,14 +174,14 @@ const Header = () => {
             </NavItem>
           </NavList>
         </Navigation>
-        <Button
+        {/* <Button
           className="w-[15rem] my-5 mx-3 flex-auto flex 2xl:justify-end hidden 2xl:block"
           variant="gradient"
           fontFamily="Poppins"
           rounded="xl3"
           value={btnText}
           onClick={onConnect}
-        />
+        /> */}
         <div
           onClick={() => setNav(!nav)}
           className="flex-right mt-15 2xl:justify-end block 2xl:hidden"
@@ -212,7 +222,7 @@ const Header = () => {
                 height={80}
                 className="dark:hidden block"
               />
-              
+
               <menu className="text-2xl ">
                 <li className="pt-6">
                   <Link
@@ -240,7 +250,7 @@ const Header = () => {
                 </li>
                 <li className="pt-6">
                   <Link
-                    href={"/dashboard"}
+                    href={"#"}
                     className={`${PoppinsFont.className} dark:text-white text-primary`}
                   >
                     Dashboard
@@ -255,14 +265,14 @@ const Header = () => {
                   </Link>
                 </li>
               </menu>
-              <Button
+              {/* <Button
                 className="mt-6 w-[10rem]"
                 variant="gradient"
                 fontFamily="Poppins"
                 rounded="xl3"
                 value={btnText}
                 onClick={onConnect}
-              />
+              /> */}
             </div>
           </div>
         )}

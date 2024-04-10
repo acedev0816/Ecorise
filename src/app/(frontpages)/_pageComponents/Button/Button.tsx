@@ -56,16 +56,22 @@ const ButtonVariants = cva(
         Poppins: [`${PoppinsFont.className}`],
         Michroma: [`${MichromaFont.className}`],
       },
+      position:{
+        relative: ["relative"],
+        absolute: ["absolute"]
+      }
     },
     defaultVariants: {
       variant: "gradient",
       size: "lg",
       fontFamily: "Poppins",
+      position: "relative"
     },
   }
 );
 interface CustomButtonProps {
   loading?: boolean;
+  comingSoon?: boolean;
 }
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof ButtonVariants> &
@@ -79,6 +85,7 @@ const Button = function ({
   value,
   className,
   loading,
+  comingSoon,
   ...others
 }: ButtonProps) {
   const ButtonRoot = tw.button``;
@@ -87,9 +94,10 @@ const Button = function ({
     <ButtonRoot
       className={cx(
         ButtonVariants({ variant, size, rounded, fontFamily, className })
-      )}
+      ) + " group"}
       {...others}
     >
+      {comingSoon && <div className="absolute hidden group-hover:flex items-center justify-center  text-xs  text-white bg-blue-500 rounded-full -top-2 -right-10 py-1 px-2">Coming Soon...</div>}
       {loading && (
         <svg
           aria-hidden="true"
