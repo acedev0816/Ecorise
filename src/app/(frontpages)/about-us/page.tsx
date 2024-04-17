@@ -4,8 +4,13 @@ import TeamProfile from "../_pageComponents/AboutUs/TeamProfile";
 import {
   AboutContainer,
   AboutSection,
-  HeroContainer, SubHeroSection, TeamContainer, TeamRow, TeamSection, TeamsQouteContainer,
-  TeamsQouteSection
+  HeroContainer,
+  SubHeroSection,
+  TeamContainer,
+  TeamRow,
+  TeamSection,
+  TeamsQouteContainer,
+  TeamsQouteSection,
 } from "../_pageComponents/StyleComponents/StyleComponents";
 import Typography from "../_pageComponents/Typography/Typography";
 
@@ -32,7 +37,12 @@ const AboutUs = function () {
             fontFamily="Jura"
             content='"You never change things by fighting the existing reality. To change something, make a new model that makes the existing model obsolete"'
           />
-          <Typography variant="h5" fontFamily="Jura" className="dark:text-textColor-100 text-primary text-center font-semibold" content="Buckminster Fuller" />
+          <Typography
+            variant="h5"
+            fontFamily="Jura"
+            className="dark:text-textColor-100 text-primary text-center font-semibold"
+            content="Buckminster Fuller"
+          />
         </TeamsQouteContainer>
       </TeamsQouteSection>
 
@@ -41,7 +51,7 @@ const AboutUs = function () {
           <TeamRow>
             <TeamProfile
               title="Corneile Uys"
-              subTitle="-CEO"
+              subTitle="-Owner and CEO"
               bio="Agricultural and Environmental Entrepreneur, Remediator and Emergency Responder for the last 20+ years. First hand experience in Natural Capital regeneration. Crypto and Real Estate builder and investor."
               image="Corneile-Uys.png"
             />
@@ -61,7 +71,7 @@ const AboutUs = function () {
           <TeamRow>
             <TeamProfile
               title="Charl Cilliers"
-              subTitle="-CFO"
+              subTitle="-Co-Founder and CFO"
               bio="Chartered accountant with 15+ years in financial modeling and project finance. Crypto investor and wildlife enthusiast."
               image="Charl-Cilliers.png"
             />
@@ -83,7 +93,12 @@ const AboutUs = function () {
 
       <AboutSection>
         <AboutContainer className="items-center">
-          <Typography className="w-5/12 text-[42px] font-semibold" variant="h3" fontFamily="Jura" content="Advisors" />
+          <Typography
+            className="w-5/12 text-[42px] font-semibold"
+            variant="h3"
+            fontFamily="Jura"
+            content="Advisors"
+          />
         </AboutContainer>
       </AboutSection>
 
@@ -92,11 +107,8 @@ const AboutUs = function () {
           <TeamRow>
             <TeamProfile
               title="Dr. Sothy Kol-Men"
-              subTitle=""
-              bio="Co-Founder of www.geniusyield.co & www.genius-x.co. 
-              He runs his own regulatory consulting firm to help 
-              early-stage projects set up appropriate legal entities 
-              to issue tokens and raise funds."
+              subTitle="Co-Founder and Regulatory Genius"
+              bio="DeFi founder with solid background in asset management, business development, and regulations. Co-Founder of www.geniusyield.co & www.genius-x.co. He runs his own regulatory consulting firm to help early-stage projects set up appropriate legal entities to issue tokens and raise funds.."
               image="Sothy-Kol-Men.png"
             />
             <TeamProfile
