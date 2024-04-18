@@ -67,8 +67,12 @@ const AboutUs = function () {
               bio="Jas is a founding member of the TrustSwap core team and has helped incubate and launch over 50 blockchain projects. Jas has a passion for decentralization and web3 technology that can empower people and uplift humanity."
               image="jas.jfif"
             />
-          </TeamRow>
-          <TeamRow>
+            <TeamProfile
+              title="Dr. Sothy Kol-Men"
+              subTitle="Co-Founder and Regulatory Genius"
+              bio="DeFi founder with solid background in asset management, business development, and regulations. Co-Founder of www.geniusyield.co & www.genius-x.co. He runs his own regulatory consulting firm to help early-stage projects set up appropriate legal entities to issue tokens and raise funds."
+              image="Sothy-Kol-Men.png"
+            />
             <TeamProfile
               title="Charl Cilliers"
               subTitle="-Co-Founder and CFO"
@@ -84,7 +88,7 @@ const AboutUs = function () {
             <TeamProfile
               title="Etienne Berthelot"
               subTitle="-COO"
-              bio="5 + Years experience in Business and supply chain development, Previous Head of sales for 'Ecocert' in EastAfrica, ESG consultant and project manager."
+              bio="5 + Years experience in Business and supply chain development, Previous Head of sales for 'Ecocert' in East Africa, ESG consultant and project manager."
               image="Etienne-Berthelot.png"
             />
           </TeamRow>
@@ -105,12 +109,6 @@ const AboutUs = function () {
       <TeamSection>
         <TeamContainer>
           <TeamRow>
-            <TeamProfile
-              title="Dr. Sothy Kol-Men"
-              subTitle="Co-Founder and Regulatory Genius"
-              bio="DeFi founder with solid background in asset management, business development, and regulations. Co-Founder of www.geniusyield.co & www.genius-x.co. He runs his own regulatory consulting firm to help early-stage projects set up appropriate legal entities to issue tokens and raise funds.."
-              image="Sothy-Kol-Men.png"
-            />
             <TeamProfile
               title="Aaron Levi Yahalom"
               subTitle=""
