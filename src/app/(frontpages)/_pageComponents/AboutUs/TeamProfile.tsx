@@ -43,7 +43,7 @@ const TeamProfile: FC<TeamProfileProp> = function ({
         alt="Team Member"
         width={ImageOptions.width}
         height={ImageOptions.height}
-        className="rounded-md w-[40%] h-full object-cover	"
+        className="rounded-md w-[70%] sm:w-[40%] h-full object-cover	"
       />
       <CardContent>
         <Typography
