@@ -186,7 +186,7 @@ export const TeamSection = tw.section`
 `;
 
 export const TeamRow = tw.div`
-    grid xs:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5
+    grid xs:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5
 `;
 
 export const TeamContainer = tw.div`

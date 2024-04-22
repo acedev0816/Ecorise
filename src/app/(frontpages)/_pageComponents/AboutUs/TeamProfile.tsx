@@ -27,10 +27,13 @@ const TeamProfile: FC<TeamProfileProp> = function ({
         px-3 py-3
         rounded-md
         min-h-[100px]
+        flex-col
+        sm:flex-row
+        items-center
     `;
 
   const CardContent = tw.div`
-        flex flex-col w-[60%]
+        flex flex-col w-full sm:w-[60%]
     `;
 
   return (
