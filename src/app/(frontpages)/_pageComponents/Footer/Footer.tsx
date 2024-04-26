@@ -76,12 +76,12 @@ const Footer = function () {
           >
             Blogs
           </Link>
-          {/* <Link
-            href={"#"}
+          <Link
+            href={"/doc/white_paper_v2.1.pdf"}
             className="text-xl dark:text-white text-primary dark:text-opacity-50 hover:text-opacity-100"
           >
-            FAQ
-          </Link> */}
+            White Paper 
+          </Link>
         </FooterLinks>
         <FooterLinks>
           <Typography variant="h5" fontFamily="Michroma" content="Company" />

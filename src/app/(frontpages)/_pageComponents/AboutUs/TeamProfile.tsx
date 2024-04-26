@@ -30,10 +30,11 @@ const TeamProfile: FC<TeamProfileProp> = function ({
         flex-col
         sm:flex-row
         items-center
+        sm:items-start
     `;
 
   const CardContent = tw.div`
-        flex flex-col w-full sm:w-[60%]
+        flex flex-col w-full sm:w-[60%] items-center
     `;
 
   return (
@@ -43,7 +44,7 @@ const TeamProfile: FC<TeamProfileProp> = function ({
         alt="Team Member"
         width={ImageOptions.width}
         height={ImageOptions.height}
-        className="rounded-md w-[70%] sm:w-[40%] h-full object-cover	"
+        className="rounded-md w-[70%] sm:w-[45%] h-full object-cover	"
       />
       <CardContent>
         <Typography

@@ -100,7 +100,7 @@ const LandingPage = function () {
             fontFamily="Jura"
             variant="h1"
             gradient="yes"
-            content="An Asset Tokenization Platform For Regenerative Finance."
+            content="An Asset Tokenization Platform For Regenerative Finance"
           />
           <HeroAnimationSVG />
 
@@ -119,7 +119,7 @@ const LandingPage = function () {
             className="break-words flex-1 leading-relaxed text-[24px] md:text-[42px] font-semibold"
             variant="h3"
             fontFamily="Jura"
-            content="ECORISE utilizes Web3, Ai and Climate Technologies to accelerate the transition toward a Regenerative Impact Economy."
+            content="ECORISE utilizes Web3, AI and Climate Technologies to accelerate the transition toward a Regenerative Impact Economy."
           />
           <Image
             src={`/globe-dark.svg`}
@@ -170,27 +170,27 @@ const LandingPage = function () {
             heading="Launchpad"
             icon="bitcoin"
             text={[
-              "Connects VC impact investors with established and grassroot ReFi projects.",
-              "Launch Tokenized assets and tap into Web3 liquidity.",
-              "Democratizes funding and impact investment access for everyone with a smartphone and internet access.",
+              "Connects VC impact investors with established and grassroot ReFi projects",
+              "Launches Tokenized assets and tap into Web3 liquidity",
+              "Democratizes funding and impact investment access for everyone with a smartphone and internet access",
             ]}
           />
           <Card
             heading="Marketplace"
             icon="bitcoin"
             text={[
-              "Trade tokenized assets 24/7, like eco credits, data & asset NFTs.",
-              "Global Marketplace access.",
-              'Decentralized credit union for the "unbanked", lock up ReFi Tokens to borrow against.',
+              "Trade tokenized assets 24/7, like eco credits, data & asset NFTs",
+              "Global Marketplace access",
+              'Decentralized credit union for the "unbanked"',
             ]}
           />
           <Card
             heading="Asset Tokenization"
             icon="bitcoin"
             text={[
-              "Utilizing tech like Ai, Blockchain, DMRV (Digital Measuring, Reporting and Verification) to verify asset data and value.",
-              "Create marketable NFTs that meet ESG and SDG criteria for balance sheets.",
-              "Transparent and publicly viewable data, easy to audit.",
+              "Utilizing tech like Ai, Blockchain, DMRV (Digital Measuring, Reporting and Verification) to verify asset data and value",
+              "Create marketable NFTs that meet ESG and SDG criteria for balance sheets",
+              "Transparent and publicly viewable data, easy to audit",
             ]}
           />
         </AboutContainer>
@@ -207,22 +207,22 @@ const LandingPage = function () {
             />
             <CardRect
               heading="Fund your Project"
-              content="List your project on the ECORISE platform and get funded"
+              content="List your project on the ECORISE platform and get funded."
               icon="dollar"
             />
             <CardRect
               heading="Community Collaboration"
-              content="Tap into the ECORISE DAO network of projects to assist you in bringing your project to the next level"
+              content="Tap into the ECORISE DAO network of projects to assist you in bringing your project to the next level."
               icon="community"
             />
             <CardRect
               heading="ECORISE Tech and Talent"
-              content="Access to ECORISE team, tech and Ai"
+              content="Get support from the ECORISE team and access to our cutting edge technology."
               icon="qr"
             />
             <CardRect
               heading="Marketing Strategy"
-              content="Assistance with pre and post fundraise marketing"
+              content="Assistance with pre and post fundraise marketing."
               icon="chart"
             />
           </ImpactCol>
@@ -235,7 +235,7 @@ const LandingPage = function () {
             />
             <CardRect
               heading="Invest in eco credits"
-              content="The carbon, water and biodiversity credit market is set to 10x or more in the next 10 years"
+              content="The carbon, water and biodiversity credit market is set to 10x or more in the next 10 years."
               icon="chart"
             />
             <CardRect
@@ -245,7 +245,7 @@ const LandingPage = function () {
             />
             <CardRect
               heading="Invest in Climate Tech"
-              content="Climate Data captured provides valuable insights into ecosystems at risk"
+              content="Climate Data captured provides valuable insights into ecosystems at risk."
               icon="qr"
             />
             <CardRect
@@ -434,7 +434,7 @@ const LandingPage = function () {
         </IncomeContainer>
       </IncomeSection>
 
-      <OverlapSection>
+      {/* <OverlapSection>
         <OverlapContainer className="flex-col md:flex-row gap-4">
           <OverlayCard className="md:w-1/2">
             <Typography
@@ -463,10 +463,10 @@ const LandingPage = function () {
             />
           </OverlayCard>
         </OverlapContainer>
-      </OverlapSection>
+      </OverlapSection> */}
 
       <ProjectSection>
-        <ProjectContainer>
+        {/* <ProjectContainer>
           <Typography
             variant="h4"
             fontFamily="Jura"
@@ -490,7 +490,7 @@ const LandingPage = function () {
             content="Mining Rehabilitation"
             image="/projects/project-3.png"
           />
-        </ProjectContainer>
+        </ProjectContainer> */}
         <div className="flex items-center mx-auto md:w-1/2">
           <input
             type="text"

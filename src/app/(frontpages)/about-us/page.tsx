@@ -61,15 +61,10 @@ const AboutUs = function () {
               bio="Software, Blockchain and Token Engineer with 20+ years of experience. Laser focused on decentralizing power and ownership through community and tech."
               image="Patrick-T.Anderson.png"
             />
-            <TeamProfile
-              title="Jas"
-              subTitle="-Business Development"
-              bio="Jas is a founding member of the TrustSwap core team and has helped incubate and launch over 50 blockchain projects. Jas has a passion for decentralization and web3 technology that can empower people and uplift humanity."
-              image="jas.jfif"
-            />
+            
             <TeamProfile
               title="Dr. Sothy Kol-Men"
-              subTitle="Co-Founder and Regulatory Genius"
+              subTitle="Co-Founder and Regulatory Expert"
               bio="DeFi founder with solid background in asset management, business development, and regulations. Co-Founder of www.geniusyield.co & www.genius-x.co. He runs his own regulatory consulting firm to help early-stage projects set up appropriate legal entities to issue tokens and raise funds."
               image="Sothy-Kol-Men.png"
             />
@@ -114,6 +109,12 @@ const AboutUs = function () {
               subTitle=""
               bio="GR, Clean air policies EU lobbyst, RWA tokenization expert, Sustainable Smart-cities advocate."
               image="aaron.png"
+            />
+            <TeamProfile
+              title="Jas"
+              subTitle=""
+              bio="Jas is a founding member of the TrustSwap core team and has helped incubate and launch over 50 blockchain projects. Jas has a passion for decentralization and web3 technology that can empower people and uplift humanity."
+              image="jas.jfif"
             />
           </TeamRow>
         </TeamContainer>
