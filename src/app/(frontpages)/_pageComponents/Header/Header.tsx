@@ -106,7 +106,7 @@ const Header = () => {
             <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
               <Link
                 href={"/#"}
-                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl hover:font-medium dark:hover:text-textColor-100`}
+                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
               >
                 Tokenize
               </Link>
@@ -125,7 +125,7 @@ const Header = () => {
             <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
               <Link
                 href={"#"}
-                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl hover:font-medium dark:hover:text-textColor-100`}
+                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
               >
                 AI estimator
               </Link>
@@ -139,7 +139,7 @@ const Header = () => {
             <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
               <Link
                 href={"#"}
-                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl hover:font-medium dark:hover:text-textColor-100`}
+                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl  dark:hover:text-textColor-100`}
               >
                 Marketplace
               </Link>
@@ -153,7 +153,7 @@ const Header = () => {
             <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
               <Link
                 href={"#"}
-                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl hover:font-medium dark:hover:text-textColor-100`}
+                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
               >
                 Dashboard
               </Link>
@@ -164,13 +164,79 @@ const Header = () => {
                 </span>
               </div>
             </NavItem>
-            <NavItem className="hidden 2xl:block">
+            <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
               <Link
-                href={"/about-us"}
-                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl hover:font-medium dark:hover:text-textColor-100`}
+                href={"#"}
+                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
+              >
+                $ECO
+              </Link>
+              <div className="absolute top-0 flex flex-col  hidden mt-6 group-hover:flex cursor-pointer">
+                <div className="w-3 h-3 ml-4 -mb-2 rotate-45 bg-white hidden md:block"></div>
+                <span className="relative w-[120px] z-10 p-2 text-m leading-none text-black whitespace-no-wrap bg-white shadow-lg hidden md:block">
+                  Coming soon
+                </span>
+              </div>
+            </NavItem>
+            <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
+              <Link
+                href={"#"}
+                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
               >
                 About Us
               </Link>
+              <div className="absolute top-0 flex flex-col items-center hidden mt-6 group-hover:flex cursor-pointer">
+                <div className="p-2 bg-sky-200 dark:bg-sky-900  w-40 flex flex-col gap-2">
+                  <Link
+                    href={"/about-us"}
+                    className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
+                  >
+                    Team
+                  </Link>
+                  <Link
+                    href={"http://localhost:3000/doc/white_paper_v2.1.pdf"}
+                    className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
+                  >
+                    White Paper
+                  </Link>
+                  <Link
+                    href={"https://medium.com/@corneile.uys"}
+                    className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
+                  >
+                    Blog
+                  </Link>
+                </div>
+              </div>
+            </NavItem>
+            <NavItem className="tooltip relative flex flex-col items-center group hidden 2xl:block">
+              <Link
+                href={"#"}
+                className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
+              >
+                Community
+              </Link>
+              <div className="absolute top-0 flex flex-col items-center hidden mt-6 group-hover:flex cursor-pointer">
+                <div className="p-2 bg-sky-200 dark:bg-sky-900 w-40 flex flex-col gap-2">
+                  <Link
+                    href={"https://discord.gg/uzXXpMSfzC"}
+                    className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
+                  >
+                    Discord
+                  </Link>
+                  <Link
+                    href={"https://twitter.com/ECORISEFINANCE"}
+                    className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
+                  >
+                    Twitter
+                  </Link>
+                  <Link
+                    href={"https://t.me/+6NmrFsR1HF9jYTVh"}
+                    className={`${PoppinsFont.className} dark:text-white text-primary text-sm md:text-xl dark:hover:text-textColor-100`}
+                  >
+                    Telegram
+                  </Link>
+                </div>
+              </div>
             </NavItem>
           </NavList>
         </Navigation>
