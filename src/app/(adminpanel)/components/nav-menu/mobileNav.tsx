@@ -88,14 +88,14 @@ export default function MobileNav() {
                     <div className="absolute h-auto min-h-full left-0 dark:bg-primary bg-white px-6 py-6 opacity-90 border-l dark:border-white border-black border-1">
                         <Link href={"/"}>
                             <Image
-                                src={`/logo-dark.svg`}
+                                src={`/logo-dark-1.svg`}
                                 alt="EcoRise"
                                 width={200}
                                 height={80}
                                 className="dark:block hidden"
                             />
                             <Image
-                                src={`/logo-light.svg`}
+                                src={`/logo-light-1.svg`}
                                 alt="EcoRise"
                                 width={200}
                                 height={80}

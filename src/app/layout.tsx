@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const metadata = {
-    title: "ECORISE",
+    title: "ECOBASED",
     description: "An Asset Tokenization Platform For Regenerative Finance",
   };
 

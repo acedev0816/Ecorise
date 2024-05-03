@@ -41,14 +41,14 @@ const Footer = function () {
         <FooterLogo>
           <Image
             className="dark:block hidden"
-            src={"/logo-dark.svg"}
+            src={"/logo-dark-1.svg"}
             width={300}
             height={80}
             alt="EcoRise"
           />
           <Image
             className="dark:hidden block "
-            src={"/logo-light.svg"}
+            src={"/logo-light-1.svg"}
             width={300}
             height={80}
             alt="EcoRise"

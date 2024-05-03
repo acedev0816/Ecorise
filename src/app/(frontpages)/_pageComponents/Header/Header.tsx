@@ -87,14 +87,14 @@ const Header = () => {
       <div className="flex container mx-auto max-w-8xl justify-between">
         <Link href={"/"} className="flex-none">
           <Image
-            src={`/logo-dark.svg`}
+            src={`/logo-dark-1.svg`}
             alt="EcoRise"
             width={300}
             height={80}
             className="dark:block hidden"
           />
           <Image
-            src={`/logo-light.svg`}
+            src={`/logo-light-1.svg`}
             alt="EcoRise"
             width={300}
             height={80}
@@ -275,14 +275,14 @@ const Header = () => {
           >
             <div className="absolute h-full right-0 dark:bg-primary bg-white px-6 py-6 opacity-90 border-l dark:border-white border-black border-1">
               <Image
-                src={`/logo-dark.svg`}
+                src={`/logo-dark-1.svg`}
                 alt="EcoRise"
                 width={200}
                 height={80}
                 className="dark:block hidden"
               />
               <Image
-                src={`/logo-light.svg`}
+                src={`/logo-light-1.svg`}
                 alt="EcoRise"
                 width={200}
                 height={80}

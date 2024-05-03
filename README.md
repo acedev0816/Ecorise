@@ -1,4 +1,4 @@
-# ECORISE
+# ECOBASED
 
 This is a Web3 Blockchain Minting App
 

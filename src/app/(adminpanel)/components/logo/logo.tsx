@@ -14,14 +14,14 @@ export default function Logo() {
     <div className={styles.logo}>
       {colorTheme && (<>
         <Image
-          src={`/logo-dark.svg`}
+          src={`/logo-dark-1.svg`}
           alt="EcoRise"
           width={210}
           height={70}
           className="dark:block hidden"
         />
         <Image
-          src={`/logo-light.svg`}
+          src={`/logo-light-1.svg`}
           alt="EcoRise"
           width={210}
           height={70}
