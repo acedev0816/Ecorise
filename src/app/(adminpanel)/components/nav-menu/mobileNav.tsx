@@ -66,14 +66,14 @@ export default function MobileNav() {
             >
                 <Image
                     src={`/mobilemenuwhite.png`}
-                    alt="EcoRise"
+                    alt="Ecobased"
                     width={36}
                     height={36}
                     className="pb-3 dark:block hidden"
                 />
                 <Image
                     src={`/mobilemenublack.png`}
-                    alt="EcoRise"
+                    alt="Ecobased"
                     width={36}
                     height={36}
                     className="pb-3 dark:hidden block"
@@ -89,14 +89,14 @@ export default function MobileNav() {
                         <Link href={"/"}>
                             <Image
                                 src={`/logo-dark-1.svg`}
-                                alt="EcoRise"
+                                alt="Ecobased"
                                 width={200}
                                 height={80}
                                 className="dark:block hidden"
                             />
                             <Image
                                 src={`/logo-light-1.svg`}
-                                alt="EcoRise"
+                                alt="Ecobased"
                                 width={200}
                                 height={80}
                                 className="dark:hidden block"

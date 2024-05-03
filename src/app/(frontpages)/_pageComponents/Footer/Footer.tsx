@@ -44,14 +44,14 @@ const Footer = function () {
             src={"/logo-dark-1.svg"}
             width={300}
             height={80}
-            alt="EcoRise"
+            alt="Ecobased"
           />
           <Image
             className="dark:hidden block "
             src={"/logo-light-1.svg"}
             width={300}
             height={80}
-            alt="EcoRise"
+            alt="Ecobased"
           />
           <Button
             onClick={onEmailSignup}

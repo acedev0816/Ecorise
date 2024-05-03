@@ -1,7 +1,6 @@
 "use client";
 
 import tw from "tailwind-styled-components";
-import EcoRiseLogo from "@/assets/images/EcoRiseLogo.svg";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "../Button/Button";
@@ -88,14 +87,14 @@ const Header = () => {
         <Link href={"/"} className="flex-none">
           <Image
             src={`/logo-dark-1.svg`}
-            alt="EcoRise"
+            alt="Ecobased"
             width={300}
             height={80}
             className="dark:block hidden"
           />
           <Image
             src={`/logo-light-1.svg`}
-            alt="EcoRise"
+            alt="Ecobased"
             width={300}
             height={80}
             className="dark:hidden block"
@@ -254,14 +253,14 @@ const Header = () => {
         >
           <Image
             src={`/mobilemenuwhite.png`}
-            alt="EcoRise"
+            alt="Ecobased"
             width={36}
             height={36}
             className="pt-8 dark:block hidden"
           />
           <Image
             src={`/mobilemenublack.png`}
-            alt="EcoRise"
+            alt="Ecobased"
             width={36}
             height={36}
             className="pt-8 dark:hidden block"
@@ -276,14 +275,14 @@ const Header = () => {
             <div className="absolute h-full right-0 dark:bg-primary bg-white px-6 py-6 opacity-90 border-l dark:border-white border-black border-1">
               <Image
                 src={`/logo-dark-1.svg`}
-                alt="EcoRise"
+                alt="Ecobased"
                 width={200}
                 height={80}
                 className="dark:block hidden"
               />
               <Image
                 src={`/logo-light-1.svg`}
-                alt="EcoRise"
+                alt="Ecobased"
                 width={200}
                 height={80}
                 className="dark:hidden block"

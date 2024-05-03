@@ -118,7 +118,7 @@ export default function DAOVaultPage() {
                 </div>
                 <div className={`${styles.wrapperCol} ${styles.mapCol}`}>
                     {colorTheme && (
-                        <Image src={`/globe-${colorTheme}.svg`} alt="EcoRise" width={700} height={700} />
+                        <Image src={`/globe-${colorTheme}.svg`} alt="Ecobased" width={700} height={700} />
                     )}
                 </div>
             </div>

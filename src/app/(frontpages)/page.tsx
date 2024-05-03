@@ -108,7 +108,7 @@ const LandingPage = function () {
             className="font-normal max-w-4xl text-center dark:text-white text-white"
             variant="h5"
             gradient="no"
-            content="The ECORISE platform allows regenerative projects to tokenize, launch and trade in a secure, compliant and fully regulated ecosystem."
+            content="The ECOBASED platform allows regenerative projects to tokenize, launch and trade in a secure, compliant and fully regulated ecosystem."
           />
         </HeroContainer>
       </HeroSection>
@@ -119,11 +119,11 @@ const LandingPage = function () {
             className="break-words flex-1 leading-relaxed text-[24px] md:text-[42px] font-semibold"
             variant="h3"
             fontFamily="Jura"
-            content="ECORISE utilizes Web3, AI and Climate Technologies to accelerate the transition toward a Regenerative Impact Economy."
+            content="ECOBASED utilizes Web3, AI and Climate Technologies to accelerate the transition toward a Regenerative Impact Economy."
           />
           <Image
             src={`/globe-dark.svg`}
-            alt="EcoRiseIcon"
+            alt="Ecobased"
             width={575}
             height={635}
           />
@@ -162,7 +162,7 @@ const LandingPage = function () {
             className="font-bold text-center px-[50px]"
             variant="h5"
             fontFamily="Jura"
-            content="ECORISE makes impact investing easy by democratizing access to natural capital markets and using Ai to identify and predict market growth in business focused on Regenerative Finance (ReFi), Climate Tech and Eco Credits (carbon, water, biodiversity)."
+            content="ECOBASED makes impact investing easy by democratizing access to natural capital markets and using Ai to identify and predict market growth in business focused on Regenerative Finance (ReFi), Climate Tech and Eco Credits (carbon, water, biodiversity)."
           />
         </AboutContainer>
         <AboutContainer className="flex-col lg:flex-row gap-5">
@@ -207,17 +207,17 @@ const LandingPage = function () {
             />
             <CardRect
               heading="Fund your Project"
-              content="List your project on the ECORISE platform and get funded."
+              content="List your project on the ECOBASED platform and get funded."
               icon="dollar"
             />
             <CardRect
               heading="Community Collaboration"
-              content="Tap into the ECORISE DAO network of projects to assist you in bringing your project to the next level."
+              content="Tap into the ECOBASED DAO network of projects to assist you in bringing your project to the next level."
               icon="community"
             />
             <CardRect
-              heading="ECORISE Tech and Talent"
-              content="Get support from the ECORISE team and access to our cutting edge technology."
+              heading="ECOBASED Tech and Talent"
+              content="Get support from the ECOBASED team and access to our cutting edge technology."
               icon="qr"
             />
             <CardRect
@@ -335,7 +335,7 @@ const LandingPage = function () {
               variant="h1"
               className="dark:text-[#D9D9D9] text-[32px] md:text-[64px] text-primary tracking-[5px] dark:text-opacity-80 leading-[1.5] font-semibold mb-10"
               fontFamily="Poppins"
-              content="Start making an IMPACT, invest in ECORISE assets"
+              content="Start making an IMPACT, invest in ECOBASED assets"
             />
             <Button
               className="inline-block min-w-[244px] min-h-[60px] mb-10 md:mb-0"
@@ -710,20 +710,20 @@ const LandingPage = function () {
           <Testimonial
             author="Kennedy Ng'ang'a from Shamba Network"
             rating={5}
-            review="ECORISE fills a vital funding need in the regenerative finance space"
+            review="ECOBASED fills a vital funding need in the regenerative finance space"
           />
           <Testimonial
             author="Future Quest DAO"
             rating={4}
             review={[
-              "We are proud to support the innovative work of Ecorise and congratulate them on being one of the winners of our $1M Grant Pool!",
-              "@ECORISEDAO is a Blockchain solution for investing in Natural Capital.",
+              "We are proud to support the innovative work of Ecobased and congratulate them on being one of the winners of our $1M Grant Pool!",
+              "@ECOBASEDDAO is a Blockchain solution for investing in Natural Capital.",
             ]}
           />
           <Testimonial
             author="OPEN FOREST PROTOCOL"
             rating={4}
-            review="#OFP will be able to onboard more people thanks to the strategic relationship with #ECORISE, allowing for more transparent #MRV usage across the board."
+            review="#OFP will be able to onboard more people thanks to the strategic relationship with #ECOBASED, allowing for more transparent #MRV usage across the board."
           />
         </TestimonialContainer>
       </TestimonialSection>

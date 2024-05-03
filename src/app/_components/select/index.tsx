@@ -62,7 +62,7 @@ const CustomSelect = ({options, multi, values, onChange, ...other}: Props) => {
           {data.indexOf(item.value) != -1 && (
             <Image
               src="/checkmark.svg"
-              alt="EcoRise"
+              alt="Ecobased"
               width={24}
               height={24}
               className={`${styles.selectLogo}`}

@@ -15,14 +15,14 @@ export default function Logo() {
       {colorTheme && (<>
         <Image
           src={`/logo-dark-1.svg`}
-          alt="EcoRise"
+          alt="Ecobased"
           width={210}
           height={70}
           className="dark:block hidden"
         />
         <Image
           src={`/logo-light-1.svg`}
-          alt="EcoRise"
+          alt="Ecobased"
           width={210}
           height={70}
           className="dark:hidden block"
